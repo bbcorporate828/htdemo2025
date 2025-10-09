@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDE | Technology & Innovation - R&D Centre</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    /* Hero background video styling */
+    .hero-background {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+ 
+    .hero-background iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+    }
+ 
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      color: white;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Section min height */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Navigation dots for scroll position */
+    .scroll-nav-dots {
+      position: fixed;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+    }
+
+    .scroll-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      margin: 1rem 0;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .scroll-dot.active {
+      background: #1e40af;
+      transform: scale(1.3);
+    }
+
+    /* Scroll indicator arrow */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+
+    /* Fade in animation on scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+</style>
+</head>
+ 
+<body class="font-sans text-gray-800">
+
+<!-- Navigation Dots -->
+<div class="scroll-nav-dots hidden md:block">
+  <div class="scroll-dot active" onclick="scrollToSection('hero')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('overview')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('technologies')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('capabilities')"></div>
+</div>
+
+<!-- Section 1: Hero -->
+<section id="hero" class="hero-background text-white text-center">
+  <!-- Background video from YouTube -->
+  <iframe 
+    src="https://www.youtube.com/embed/IuVosd4umVw?autoplay=1&mute=1&loop=1&playlist=IuVosd4umVw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1" 
+    frameborder="0" 
+    allow="autoplay; encrypted-media" 
+    allowfullscreen>
+  </iframe>
+
+  <!-- Content over the video -->
+  <div class="hero-content px-4">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">INNOVATION WITH A PURPOSE</h1>
+    <p class="max-w-3xl mx-auto text-lg md:text-2xl mb-8">CDE envisions a future full of possibilities in redefining quality standards in rubber products through technology.</p>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" onclick="scrollToSection('overview')">
+    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- Section 2: R&D Centre Overview -->
+<section id="overview" class="bg-white">
+  <div class="py-16 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in">
+      <h2 class="text-4xl font-bold text-blue-900 mb-8 text-center">Facilities Overview - R&D Centre</h2>
+      
+      <div class="max-w-4xl mx-auto mb-12">
+        <p class="text-xl leading-relaxed mb-6">
+          At CDE, Research and Development takes the leading role in meeting demands of dynamic market segments from healthcare to industrial application.
+        </p>
+        <p class="text-lg leading-relaxed text-gray-700">
+          Our continuous research leads to breakthroughs in glove technology with numerous patented innovations. Our Research and Development Centre serves as the company gateway to enable continuous transformation through technology and innovation.
+        </p>
+      </div>
+
+      <div class="bg-blue-50 p-8 rounded-2xl mb-12">
+        <h3 class="text-2xl font-bold text-blue-900 mb-4">Our R&D Team</h3>
+        <p class="text-lg leading-relaxed">
+          We have established an efficient Research and Development (R&D) team that provides R&D support to our endeavor in providing innovative medical gloves that can meet the requirement of our customers. Our competent and resourceful R&D team of chemists and engineers provides reliable services for both our internal research projects and medical glove factory operations.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Advanced Technologies -->
+<section id="technologies" class="bg-gray-50">
+  <div class="py-16 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in">
+      <h2 class="text-4xl font-bold text-blue-900 mb-12 text-center">Advanced Analytical Technologies</h2>
+      
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <!-- SEM -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+          <img src="images/sem-equipment.jpg" alt="Scanning Electron Microscopy Equipment" class="w-full h-48 object-cover rounded-lg mb-6">
+          <h3 class="text-xl font-bold mb-4 text-center">Scanning Electron Microscopy (SEM)</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Uses focused high-energy electrons to reveal surface morphology, chemical composition, and crystalline structure of materials.
+          </p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-600">
+            <li>✓ Determine surface elements</li>
+            <li>✓ Measure elemental composition</li>
+            <li>✓ Identify substances and coatings</li>
+          </ul>
+        </div>
+
+        <!-- HPLC -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+          <img src="images/hplc-equipment.jpg" alt="High-Performance Liquid Chromatography Equipment" class="w-full h-48 object-cover rounded-lg mb-6">
+          <h3 class="text-xl font-bold mb-4 text-center">High-Performance Liquid Chromatography (HPLC)</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Versatile identification of compounding ingredients and detection of residual chemicals in rubber gloves at parts per million (ppm) level.
+          </p>
+        </div>
+
+        <!-- FTIR -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+          <img src="images/ftir-equipment.jpg" alt="Fourier Transform Infrared Spectrophotometer Equipment" class="w-full h-48 object-cover rounded-lg mb-6">
+          <h3 class="text-xl font-bold mb-4 text-center">Fourier Transform Infrared Spectrophotometer (FTIR)</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Standard technique for identifying chemicals and materials by analyzing infrared spectral scans and molecular vibrations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: R&D Capabilities & Testing -->
+<section id="capabilities" class="bg-white">
+  <div class="py-16 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in">
+      <h2 class="text-4xl font-bold text-blue-900 mb-12 text-center">R&D Capabilities & Testing Facilities</h2>
+      
+      <div class="grid md:grid-cols-2 gap-12 mb-12">
+        <!-- Left Column -->
+        <div>
+          <h3 class="text-2xl font-bold text-blue-900 mb-6">Key Contributions</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-blue-900 font-bold mr-3">✓</span>
+              <span>Developing technologies in sample preparation and extraction methods for HPLC analysis</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-900 font-bold mr-3">✓</span>
+              <span>Evaluation and quantification of residual chemicals in gloves</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-900 font-bold mr-3">✓</span>
+              <span>Developing patent-pending medical gloves with low dermatitis claim</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-900 font-bold mr-3">✓</span>
+              <span>Contamination analysis and impurities screening</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-900 font-bold mr-3">✓</span>
+              <span>Glove degradation identification</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-900 font-bold mr-3">✓</span>
+              <span>Developing in-house FTIR library of rubber and rubber chemicals</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right Column -->
+        <div>
+          <h3 class="text-2xl font-bold text-blue-900 mb-6">Specialized Testing</h3>
+          
+          <div class="bg-blue-50 p-6 rounded-xl mb-6">
+            <h4 class="text-xl font-bold mb-3">Antigenic Protein Testing</h4>
+            <p class="text-gray-700">
+              Continuous improvement in glove dipping technology to produce natural rubber latex gloves with low protein levels, compliant with ASTM D 6499 standards.
+            </p>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-xl">
+            <h4 class="text-xl font-bold mb-3">Dipping Process Simulation</h4>
+            <p class="text-gray-700">
+              Industrial robotic technology enables detailed simulation of glove dipping process, allowing new product and process development in the shortest time possible.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Testing Equipment -->
+      <div class="bg-gray-50 p-8 rounded-2xl">
+        <h3 class="text-2xl font-bold text-blue-900 mb-6 text-center">Additional Testing Capabilities</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="text-center p-4 bg-white rounded-lg shadow">
+            <p class="font-semibold">Contact Angle Tester</p>
+          </div>
+          <div class="text-center p-4 bg-white rounded-lg shadow">
+            <p class="font-semibold">Liquid Particle Counter</p>
+          </div>
+          <div class="text-center p-4 bg-white rounded-lg shadow">
+            <p class="font-semibold">Zeta Potential Tester</p>
+          </div>
+          <div class="text-center p-4 bg-white rounded-lg shadow">
+            <p class="font-semibold">Mastersizer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-gray-300 text-center py-6">
+  <p>&copy; 2025 CDE Rubber Industries Bhd. All Rights Reserved.</p>
+</footer>
+
+<script>
+  // Scroll to section function
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Update navigation dots based on scroll position
+  function updateScrollDots() {
+    const sections = ['hero', 'overview', 'technologies', 'capabilities'];
+    const dots = document.querySelectorAll('.scroll-dot');
+    
+    let currentSection = 0;
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    
+    sections.forEach((sectionId, index) => {
+      const section = document.getElementById(sectionId);
+      if (section && scrollPosition >= section.offsetTop) {
+        currentSection = index;
+      }
+    });
+    
+    dots.forEach((dot, index) => {
+      if (index === currentSection) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  // Fade in elements on scroll
+  function fadeInOnScroll() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    fadeElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const elementBottom = element.getBoundingClientRect().bottom;
+      
+      if (elementTop < window.innerHeight * 0.8 && elementBottom > 0) {
+        element.classList.add('visible');
+      }
+    });
+  }
+
+  // Event listeners
+  window.addEventListener('scroll', () => {
+    updateScrollDots();
+    fadeInOnScroll();
+  });
+
+  // Initial check
+  window.addEventListener('load', () => {
+    updateScrollDots();
+    fadeInOnScroll();
+  });
+</script>
+
+</body>
+</html>
+
