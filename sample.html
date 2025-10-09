@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDE | Technology & Innovations</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<head>
+<style>
+    /* Ensure the video background covers the header */
+    .hero-background {
+      position: relative;
+      width: 100%;
+      height: 60vh; /* Adjust height if necessary */
+      overflow: hidden;
+    }
+ 
+    /* Styling for the video/iframe itself */
+    .hero-background iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none; /* Prevent user interaction with video controls */
+    }
+ 
+    /* Styling for the content over the video */
+    .hero-content {
+      position: relative;
+      z-index: 10; /* Ensure text is above the video */
+      color: white;
+    }
+</style>
+</head>
+ 
+<body class="font-sans text-gray-800">
+<!-- Hero Section -->
+<header class="hero-background text-white py-20 text-center">
+<!-- Background video from YouTube -->
+<iframe
+  src="https://www.youtube.com/embed/IuVosd4umVw?autoplay=1&mute=1&loop=1&playlist=IuVosd4umVw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
+
+    <!-- Content over the video -->
+<div class="hero-content">
+<h1 class="text-4xl md:text-5xl font-bold mb-4">Driving Innovation, Empowering Tomorrow</h1>
+<p class="max-w-2xl mx-auto text-lg md:text-xl">At CDE, we embrace cutting-edge technologies and innovative solutions to transform industries and improve lives globally.</p>
+<a href="#innovation" class="mt-8 inline-block bg-yellow-400 text-black font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-yellow-500 transition">Explore Our Innovations</a>
+</div>
+</header>
+</body>
+<!-- Innovation Section -->
+<section id="innovation" class="py-16 px-6 max-w-6xl mx-auto">
+<h2 class="text-3xl font-bold text-blue-900 mb-6">Innovation at the Heart of CDE</h2>
+<p class="text-lg leading-relaxed">Since our founding, CDE has been committed to pushing the boundaries of science and technology in rubber and polymer manufacturing. We combine advanced research, engineering excellence, and sustainability-driven practices to deliver products that meet evolving global needs.</p>
+</section>
+<!-- Technology in Action -->
+<section class="py-16 px-6 bg-gray-50">
+<h2 class="text-3xl font-bold text-blue-900 mb-10 text-center">Pioneering Technologies for a Better Future</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+<img src="https://img.icons8.com/external-flat-juicy-fish/64/external-factory-industry-flat-flat-juicy-fish.p… alt="Smart Manufacturing" class="mb-4 mx-auto">
+<h3 class="text-xl font-semibold mb-2">Smart Manufacturing</h3>
+<p>Leveraging automation, robotics, and data-driven systems to ensure efficiency, precision, and safety in production.</p>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+<img src="https://img.icons8.com/external-justicon-flat-justicon/64/external-chemical-laboratory-science-just… alt="Material Science" class="mb-4 mx-auto">
+<h3 class="text-xl font-semibold mb-2">Material Science Excellence</h3>
+<p>Developing advanced rubber and polymer formulations for superior performance, durability, and sustainability.</p>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+<img src="https://img.icons8.com/color/64/renewable-energy.png" alt="Sustainable Innovation" class="mb-4 mx-auto">
+<h3 class="text-xl font-semibold mb-2">Sustainable Innovation</h3>
+<p>Innovating eco-friendly processes and biodegradable materials to support a greener future.</p>
+</div>
+</div>
+</section>
+<!-- R&D Section -->
+<section class="py-16 px-6 max-w-6xl mx-auto">
+<h2 class="text-3xl font-bold text-blue-900 mb-6">Investing in Tomorrow’s Solutions</h2>
+<p class="text-lg leading-relaxed">Our R&D teams continuously explore new frontiers in technology, from high-performance materials to advanced glove engineering and automotive solutions. Collaborations with universities, research institutions, and global partners allow us to stay at the forefront of industrial innovation.</p>
+</section>
+<!-- Achievements -->
+<section class="py-16 px-6 bg-gray-50">
+<h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">Proven Track Record of Innovation</h2>
+<ul class="max-w-3xl mx-auto space-y-4 text-lg">
+<li class="flex items-start"><span class="text-blue-900 font-bold mr-2">✔</span> First in the region to pioneer nitrile glove technology.</li>
+<li class="flex items-start"><span class="text-blue-900 font-bold mr-2">✔</span> Continuous investment in Industry 4.0 smart factory systems.</li>
+<li class="flex items-start"><span class="text-blue-900 font-bold mr-2">✔</span> Recognized patents in advanced rubber technology and eco-friendly materials.</li>
+</ul>
+</section>
+<!-- Future Section -->
+<section class="py-16 px-6 max-w-6xl mx-auto text-center">
+<h2 class="text-3xl font-bold text-blue-900 mb-6">Shaping the Future with Innovation</h2>
+<p class="text-lg leading-relaxed max-w-3xl mx-auto mb-8">CDE’s journey is guided by innovation, sustainability, and global impact. As industries evolve, we remain committed to developing technologies that safeguard health, protect the environment, and create value for communities worldwide.</p>
+<a href="#" class="inline-block bg-blue-900 text-white font-semibold px-8 py-3 rounded-xl shadow-md hover:bg-blue-800 transition">Learn More About Our R&D</a>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-800 text-gray-300 text-center py-6">
+<p>&copy; 2025 CDE Rubber Industries Bhd. All Rights Reserved.</p>
+</footer>
+</body>
+</html>
