@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDE | Technology & Innovation - R&D Centre</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        animation: {
+          'slide-up': 'slideUp 0.8s ease-out',
+          'fade-in-up': 'fadeInUp 0.6s ease-out',
+          'scale-in': 'scaleIn 0.5s ease-out',
+          'float': 'float 3s ease-in-out infinite',
+        },
+        keyframes: {
+          slideUp: {
+            '0%': { transform: 'translateY(100px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' }
+          },
+          fadeInUp: {
+            '0%': { transform: 'translateY(30px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' }
+          },
+          scaleIn: {
+            '0%': { transform: 'scale(0.9)', opacity: '0' },
+            '100%': { transform: 'scale(1)', opacity: '1' }
+          },
+          float: {
+            '0%, 100%': { transform: 'translateY(0px)' },
+            '50%': { transform: 'translateY(-10px)' }
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+    /* Modern CSS Variables */
+    :root {
+      --primary-red: #dc2626;
+      --secondary-red: #ef4444;
+      --accent-green: #10b981;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      --gradient-secondary: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+      --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Hero background video styling */
+    .hero-background {
+      position: relative;
+      width: 100%;
+      height: 60vh; /* Adjust height if necessary */
+      overflow: hidden;
+    }
+
+ 
+    .hero-background iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      color: white;
+    }
+
+    /* Modern gradient overlays */
+    .gradient-overlay {
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.8) 0%, rgba(239, 68, 68, 0.6) 100%);
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Section min height */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Hero section specific height override */
+    section#hero {
+      min-height: 60vh;
+      height: 60vh;
+    }
+
+    /* Modern Navigation dots */
+    .scroll-nav-dots {
+      position: fixed;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+    }
+
+    .scroll-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff6b6b, #ef4444);
+      margin: 1rem 0;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid rgba(255, 99, 99, 0.95);
+      box-shadow: 0 0 12px rgba(255, 99, 99, 0.9);
+    }
+
+    .scroll-dot:hover {
+      background: linear-gradient(135deg, #ffc2c2, #ff6b6b);
+      transform: scale(1.2);
+      box-shadow: 0 0 18px rgba(255, 120, 120, 0.95);
+    }
+
+    .scroll-dot.active {
+      background: linear-gradient(135deg, #ff8a8a, #ff3b3b);
+      transform: scale(1.4);
+      box-shadow: 0 0 28px rgba(255, 80, 80, 1);
+    }
+
+    /* Modern scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: float 2s ease-in-out infinite;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      padding: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .scroll-indicator:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(-50%) scale(1.1);
+    }
+
+    /* Advanced animations */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-up {
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .slide-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Modern card hover effects */
+    .modern-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .modern-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .modern-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .modern-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Modern buttons */
+    .modern-btn {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 12px 32px;
+      border-radius: 50px;
+      border: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modern-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .modern-btn:hover::before {
+      left: 100%;
+    }
+
+    .modern-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    /* Glass morphism effect */
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Modern section backgrounds */
+    .section-bg-pattern {
+      background-image: 
+        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+    }
+
+    /* R&D Centre backdrop */
+    .rd-centre-backdrop {
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)),
+        url('images/img_rd_center.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    .rd-centre-backdrop::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+      pointer-events: none;
+    }
+
+    /* Staggered animation delays */
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+    .stagger-6 { animation-delay: 0.6s; }
+
+    /* Modern typography */
+    .heading-gradient {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Floating elements */
+    .floating-element {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .floating-element:nth-child(2n) {
+      animation-delay: -2s;
+    }
+
+    .floating-element:nth-child(3n) {
+      animation-delay: -4s;
+    }
+</style>
+</head>
+ 
+<body class="font-sans text-gray-800 bg-gray-50">
+
+<!-- Navigation Dots -->
+<div class="scroll-nav-dots hidden md:block">
+  <div class="scroll-dot active" onclick="scrollToSection('hero')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('overview')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('why-choose-us')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('technologies')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('products')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('certificates')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('capabilities')"></div>
+</div>
+
+<!-- Section 1: Hero -->
+<header id="hero" class="hero-background text-white py-20 text-center">
+  <!-- Background video from YouTube -->
+  <div class="gradient-overlay absolute inset-0 z-5"></div>
+  <iframe 
+    src="https://www.youtube.com/embed/IuVosd4umVw?autoplay=1&mute=1&loop=1&playlist=IuVosd4umVw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1" 
+    frameborder="0" 
+    allow="autoplay; encrypted-media" 
+    allowfullscreen>
+  </iframe>
+
+  <!-- Content over the video -->
+  <div class="hero-content">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Driving Innovation, Empowering Tomorrow</h1>
+    <p class="max-w-2xl mx-auto text-lg md:text-xl">CDE envisions a future full of possibilities in redefining quality standards in rubber products through cutting-edge technology and innovation.</p>
+    <a href="#overview" class="mt-8 inline-block bg-yellow-400 text-black font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-yellow-500 transition">Explore Our Innovation</a>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" onclick="scrollToSection('overview')">
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</header>
+
+<!-- Section 2: R&D Centre Overview -->
+<section id="overview" class="rd-centre-backdrop">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full relative z-10">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">Facilities Overview</span>
+      </h2>
+      <p class="text-center text-xl text-gray-600 mb-16">R&D Centre</p>
+      
+      <div class="max-w-5xl mx-auto mb-16">
+        <div class="glass p-12 rounded-3xl">
+          <p class="text-2xl leading-relaxed mb-8 text-center">
+            At CDE, Research and Development takes the leading role in meeting demands of dynamic market segments from healthcare to industrial application.
+          </p>
+          <p class="text-xl leading-relaxed text-gray-700 text-center">
+            Our continuous research leads to breakthroughs in glove technology with numerous patented innovations. Our Research and Development Centre serves as the company gateway to enable continuous transformation through technology and innovation.
+          </p>
+        </div>
+      </div>
+
+      <div class="modern-card p-10 max-w-4xl mx-auto">
+        <h3 class="text-3xl font-bold mb-6 text-center heading-gradient">Our R&D Team</h3>
+        <p class="text-xl leading-relaxed text-center">
+          We have established an efficient Research and Development (R&D) team that provides R&D support to our endeavor in providing innovative medical gloves that can meet the requirement of our customers. Our competent and resourceful R&D team of chemists and engineers provides reliable services for both our internal research projects and medical glove factory operations.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Why Choose Us -->
+<section id="why-choose-us" class="bg-gradient-to-br from-red-50 to-red-100">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">Why Choose CDE</span>
+      </h2>
+      <p class="text-center text-xl text-gray-600 mb-16">Leading Innovation in Rubber Technology</p>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <!-- Innovation Excellence -->
+        <div class="modern-card p-8 text-center stagger-1">
+          <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-red-500 to-pink-600 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Innovation Excellence</h3>
+          <p class="text-gray-600">Cutting-edge research and patented technologies that set industry standards.</p>
+        </div>
+
+        <!-- Quality Assurance -->
+        <div class="modern-card p-8 text-center stagger-2">
+          <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Quality Assurance</h3>
+          <p class="text-gray-600">Rigorous testing protocols ensuring the highest quality standards.</p>
+        </div>
+
+        <!-- Advanced Technology -->
+        <div class="modern-card p-8 text-center stagger-3">
+          <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Advanced Technology</h3>
+          <p class="text-gray-600">State-of-the-art equipment and analytical capabilities for superior products.</p>
+        </div>
+
+        <!-- Global Recognition -->
+        <div class="modern-card p-8 text-center stagger-4">
+          <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Global Recognition</h3>
+          <p class="text-gray-600">Internationally recognized certifications and industry-leading standards.</p>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center stagger-1">
+          <div class="text-4xl font-bold text-orange-600 mb-2 counter" data-target="200" data-suffix="+">200+</div>
+          <p class="text-gray-600">Employees</p>
+        </div>
+        <div class="text-center stagger-2">
+          <div class="text-4xl font-bold text-red-600 mb-2 counter" data-target="46">46</div>
+          <p class="text-gray-600">Years of Excellence</p>
+        </div>
+        <div class="text-center stagger-3">
+          <div class="text-4xl font-bold text-green-600 mb-2 counter" data-target="8" data-suffix="+">8+</div>
+          <p class="text-gray-600">Patents Filed</p>
+        </div>
+        <div class="text-center stagger-4">
+          <div class="text-4xl font-bold text-purple-600 mb-2 counter" data-target="170" data-suffix="+">170+</div>
+          <p class="text-gray-600">Countries Served</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: Advanced Technologies -->
+<section id="technologies" class="bg-white">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">Advanced Analytical Technologies</span>
+      </h2>
+      <p class="text-center text-xl text-gray-600 mb-16">Cutting-Edge Equipment for Superior Analysis</p>
+      
+      <div class="grid md:grid-cols-3 gap-10 mb-16">
+        <!-- SEM -->
+        <div class="modern-card p-8 stagger-1">
+          <div class="overflow-hidden rounded-xl mb-6">
+            <img src="images/sem-equipment.jpg" alt="Scanning Electron Microscopy Equipment" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Scanning Electron Microscopy (SEM)</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Uses focused high-energy electrons to reveal surface morphology, chemical composition, and crystalline structure of materials.
+          </p>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex items-center">
+              <span class="text-green-500 font-bold mr-3">✓</span>
+              <span>Determine surface elements</span>
+            </li>
+            <li class="flex items-center">
+              <span class="text-green-500 font-bold mr-3">✓</span>
+              <span>Measure elemental composition</span>
+            </li>
+            <li class="flex items-center">
+              <span class="text-green-500 font-bold mr-3">✓</span>
+              <span>Identify substances and coatings</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- HPLC -->
+        <div class="modern-card p-8 stagger-2">
+          <div class="overflow-hidden rounded-xl mb-6">
+            <img src="images/hplc-equipment.jpg" alt="High-Performance Liquid Chromatography Equipment" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">High-Performance Liquid Chromatography (HPLC)</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Versatile identification of compounding ingredients and detection of residual chemicals in rubber gloves at parts per million (ppm) level.
+          </p>
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <p class="text-sm text-blue-800 font-medium">
+              Precision: ±0.001 ppm detection capability
+            </p>
+          </div>
+        </div>
+
+        <!-- FTIR -->
+        <div class="modern-card p-8 stagger-3">
+          <div class="overflow-hidden rounded-xl mb-6">
+            <img src="images/ftir-equipment.jpg" alt="Fourier Transform Infrared Spectrophotometer Equipment" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Fourier Transform Infrared Spectrophotometer (FTIR)</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Standard technique for identifying chemicals and materials by analyzing infrared spectral scans and molecular vibrations.
+          </p>
+          <div class="bg-purple-50 p-4 rounded-lg">
+            <p class="text-sm text-purple-800 font-medium">
+              Advanced molecular fingerprinting technology
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5: Products -->
+<section id="products" class="bg-gradient-to-br from-gray-50 to-red-50">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">Our Products</span>
+      </h2>
+      <p class="text-center text-xl text-gray-600 mb-16">Innovative Rubber Solutions for Every Industry</p>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <!-- Medical Gloves -->
+        <div class="modern-card p-8 stagger-1">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Medical Gloves</h3>
+          <p class="text-gray-600 mb-6 text-center">
+            Premium quality medical gloves with low protein content and enhanced barrier protection.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ Powder-free options</li>
+            <li>✓ Enhanced tactile sensitivity</li>
+            <li>✓ Superior barrier protection</li>
+          </ul>
+          <button class="modern-btn w-full text-sm py-3">
+            Learn More
+          </button>
+        </div>
+
+        <!-- Industrial Gloves -->
+        <div class="modern-card p-8 stagger-2">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Industrial Gloves</h3>
+          <p class="text-gray-600 mb-6 text-center">
+            Heavy-duty industrial gloves designed for maximum protection and durability.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ Chemical resistance</li>
+            <li>✓ Cut and abrasion protection</li>
+            <li>✓ Extended wear comfort</li>
+            <li>✓ Custom sizing available</li>
+          </ul>
+          <button class="modern-btn w-full text-sm py-3">
+            Learn More
+          </button>
+        </div>
+
+        <!-- Specialty Products -->
+        <div class="modern-card p-8 stagger-3">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Specialty Products</h3>
+          <p class="text-gray-600 mb-6 text-center">
+            Custom-engineered rubber solutions for specific industrial applications.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600 mb-6">
+            <li>✓ Chemical Handlings</li>
+            <li>✓ Food Handling</li>
+            <li>✓ Research development</li>
+            <li>✓ Specialized applications</li>
+          </ul>
+          <button class="modern-btn w-full text-sm py-3">
+            Learn More
+          </button>
+        </div>
+      </div>
+
+      <!-- Product Features -->
+      <div class="bg-white rounded-3xl p-12 shadow-xl">
+        <h3 class="text-3xl font-bold text-center mb-12 heading-gradient">Why Our Products Stand Out</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center stagger-1">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
+              <span class="text-white font-bold text-xl">1</span>
+            </div>
+            <h4 class="text-xl font-bold mb-3">Advanced Materials</h4>
+            <p class="text-gray-600">Utilizing the latest in rubber technology and sustainable materials.</p>
+          </div>
+          <div class="text-center stagger-2">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg">
+              <span class="text-white font-bold text-xl">2</span>
+            </div>
+            <h4 class="text-xl font-bold mb-3">Quality Testing</h4>
+            <p class="text-gray-600">Rigorous quality control processes ensuring consistent performance.</p>
+          </div>
+          <div class="text-center stagger-3">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
+              <span class="text-white font-bold text-xl">3</span>
+            </div>
+            <h4 class="text-xl font-bold mb-3">Innovation Focus</h4>
+            <p class="text-gray-600">Continuous R&D investment driving product innovation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 6: Certificates -->
+<section id="certificates" class="bg-white">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">Certifications & Standards</span>
+      </h2>
+      <p class="text-center text-xl text-gray-600 mb-16">Internationally Recognized Quality Assurance</p>
+      
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <!-- ISO 17025 -->
+        <div class="modern-card p-8 text-center stagger-1">
+          <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+            <span class="text-white font-bold text-2xl">ISO</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">ISO 17025:2017</h3>
+          <p class="text-gray-600 text-sm">Testing & Calibration Laboratories</p>
+        </div>
+
+        <!-- FDA -->
+        <div class="modern-card p-8 text-center stagger-2">
+          <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
+            <span class="text-white font-bold text-lg">FDA</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">FDA 510(k)</h3>
+          <p class="text-gray-600 text-sm">Medical Device Clearance</p>
+        </div>
+      </div>
+
+      <!-- Additional Certifications -->
+      <div class="bg-gradient-to-r from-red-50 to-red-100 rounded-3xl p-12">
+        <h3 class="text-3xl font-bold text-center mb-12 heading-gradient">Additional Certifications</h3>
+        
+        <!-- PDF Certificates Preview Section -->
+        <div class="mb-12">
+          <h4 class="text-2xl font-bold text-center mb-8 text-gray-800">Official Certificates</h4>
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Certificate of Accreditation -->
+            <div class="modern-card p-6 stagger-1">
+              <div class="text-center mb-4">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                </div>
+                <h5 class="text-lg font-bold text-gray-800 mb-2">Certificate of Accreditation</h5>
+                <p class="text-sm text-gray-600 mb-4">Issue 2 - Laboratory Excellence</p>
+              </div>
+              
+              <!-- PDF Preview -->
+              <div class="pdf-preview-container mb-4">
+                <iframe 
+                  src="pdf/Certificate of Accreditation - Issue 2.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" 
+                  class="w-full h-64 border-0 rounded-lg shadow-lg"
+                  title="Certificate of Accreditation Preview">
+                </iframe>
+              </div>
+              
+              <!-- Download Button -->
+              <div class="flex justify-center space-x-4">
+                <button onclick="openPDF('pdf/Certificate of Accreditation - Issue 2.pdf')" 
+                        class="modern-btn text-sm px-4 py-2">
+                  View Full PDF
+                </button>
+                <a href="pdf/Certificate of Accreditation - Issue 2.pdf" download 
+                   class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">
+                  Download
+                </a>
+              </div>
+            </div>
+
+            <!-- IKM Laboratory Excellence Award -->
+            <div class="modern-card p-6 stagger-2">
+              <div class="text-center mb-4">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 rounded-full flex items-center justify-center shadow-lg">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                  </svg>
+                </div>
+                <h5 class="text-lg font-bold text-gray-800 mb-2">IKM Laboratory Excellence Award</h5>
+                <p class="text-sm text-gray-600 mb-4">2024 Recognition</p>
+              </div>
+              
+              <!-- PDF Preview -->
+              <div class="pdf-preview-container mb-4">
+                <iframe 
+                  src="pdf/IKM Laboratory Excellence Award 2024.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" 
+                  class="w-full h-64 border-0 rounded-lg shadow-lg"
+                  title="IKM Laboratory Excellence Award Preview">
+                </iframe>
+              </div>
+              
+              <!-- Download Button -->
+              <div class="flex justify-center space-x-4">
+                <button onclick="openPDF('pdf/IKM Laboratory Excellence Award 2024.pdf')" 
+                        class="modern-btn text-sm px-4 py-2">
+                  View Full PDF
+                </button>
+                <a href="pdf/IKM Laboratory Excellence Award 2024.pdf" download 
+                   class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">
+                  Download
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 7: R&D Capabilities & Testing -->
+<section id="capabilities" class="bg-gray-50">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">R&D Capabilities & Testing Facilities</span>
+      </h2>
+      <p class="text-center text-xl text-gray-600 mb-16">Comprehensive Research & Development Excellence</p>
+      
+      <div class="grid md:grid-cols-2 gap-12 mb-16">
+        <!-- Left Column -->
+        <div class="modern-card p-10 stagger-1">
+          <h3 class="text-3xl font-bold mb-8 heading-gradient">Key Contributions</h3>
+          <ul class="space-y-4 text-gray-700">
+            <li class="flex items-start">
+              <span class="text-green-500 font-bold mr-4 text-xl">✓</span>
+              <span class="text-lg">Developing technologies in sample preparation and extraction methods for HPLC analysis</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 font-bold mr-4 text-xl">✓</span>
+              <span class="text-lg">Evaluation and quantification of residual chemicals in gloves</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 font-bold mr-4 text-xl">✓</span>
+              <span class="text-lg">Developing patent-pending medical gloves with low dermatitis claim</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 font-bold mr-4 text-xl">✓</span>
+              <span class="text-lg">Contamination analysis and impurities screening</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 font-bold mr-4 text-xl">✓</span>
+              <span class="text-lg">Glove degradation identification</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-500 font-bold mr-4 text-xl">✓</span>
+              <span class="text-lg">Developing in-house FTIR library of rubber and rubber chemicals</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right Column -->
+        <div class="space-y-8 stagger-2">
+          <div class="modern-card p-8">
+            <h4 class="text-2xl font-bold mb-4 heading-gradient">Antigenic Protein Testing</h4>
+            <p class="text-gray-700 leading-relaxed">
+              Continuous improvement in glove dipping technology to produce natural rubber latex gloves with low protein levels, compliant with ASTM D 6499 standards.
+            </p>
+          </div>
+
+          <div class="modern-card p-8">
+            <h4 class="text-2xl font-bold mb-4 heading-gradient">Dipping Process Simulation</h4>
+            <p class="text-gray-700 leading-relaxed">
+              Industrial robotic technology enables detailed simulation of glove dipping process, allowing new product and process development in the shortest time possible.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Testing Equipment -->
+      <div class="modern-card p-12">
+        <h3 class="text-3xl font-bold text-center mb-12 heading-gradient">Additional Testing Capabilities</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="text-center stagger-1">
+            <div class="overflow-hidden rounded-xl mb-4">
+              <img src="images/img_contact_angle_tester.jpg" alt="Contact Angle Tester Equipment" class="w-full h-40 object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <p class="font-semibold text-gray-800">Contact Angle Tester</p>
+          </div>
+          <div class="text-center stagger-2">
+            <div class="overflow-hidden rounded-xl mb-4">
+              <img src="images/img_liquid_particle_counter.jpg" alt="Liquid Particle Counter Equipment" class="w-full h-40 object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <p class="font-semibold text-gray-800">Liquid Particle Counter</p>
+          </div>
+          <div class="text-center stagger-3">
+            <div class="overflow-hidden rounded-xl mb-4">
+              <img src="images/img_zeta_potential_tester.jpg" alt="Zeta Potential Tester Equipment" class="w-full h-40 object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <p class="font-semibold text-gray-800">Zeta Potential Tester</p>
+          </div>
+          <div class="text-center stagger-4">
+            <div class="overflow-hidden rounded-xl mb-4">
+              <img src="images/img_mastersizer.jpg" alt="Mastersizer Equipment" class="w-full h-40 object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <p class="font-semibold text-gray-800">Mastersizer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-gray-300 py-12">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <h3 class="text-xl font-bold text-white mb-4">CDE Rubber Industries Bhd</h3>
+        <p class="text-gray-400 leading-relaxed">
+          Leading innovation in rubber technology with cutting-edge research and development capabilities.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="#overview" class="hover:text-white transition-colors">About Us</a></li>
+          <li><a href="#products" class="hover:text-white transition-colors">Products</a></li>
+          <li><a href="#technologies" class="hover:text-white transition-colors">Technologies</a></li>
+          <li><a href="#certificates" class="hover:text-white transition-colors">Certifications</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+        <div class="text-gray-400 space-y-2">
+          <p>📧 info@cderubber.com</p>
+          <p>📞 +60 3-1234 5678</p>
+          <p>📍 Malaysia</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 pt-8 text-center">
+      <p>&copy; 2025 CDE Rubber Industries Bhd. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll to section function
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Update navigation dots based on scroll position
+  function updateScrollDots() {
+    const sections = ['hero', 'overview', 'why-choose-us', 'technologies', 'products', 'certificates', 'capabilities'];
+    const dots = document.querySelectorAll('.scroll-dot');
+    
+    let currentSection = 0;
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    
+    sections.forEach((sectionId, index) => {
+      const section = document.getElementById(sectionId);
+      if (section && scrollPosition >= section.offsetTop) {
+        currentSection = index;
+      }
+    });
+    
+    dots.forEach((dot, index) => {
+      if (index === currentSection) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  // Advanced animations on scroll
+  function animateOnScroll() {
+    const animatedElements = document.querySelectorAll('.fade-in-up, .slide-up, .scale-in');
+    
+    animatedElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const elementBottom = element.getBoundingClientRect().bottom;
+      
+      if (elementTop < window.innerHeight * 0.8 && elementBottom > 0) {
+        element.classList.add('visible');
+      }
+    });
+  }
+
+  // Counter animation
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const suffix = counter.getAttribute('data-suffix') || '';
+      const increment = target / 100;
+      let current = 0;
+      
+      const updateCounter = () => {
+        if (current < target) {
+          current += increment;
+          counter.textContent = `${Math.ceil(current)}${suffix}`;
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = `${target}${suffix}`;
+        }
+      };
+      
+      updateCounter();
+    });
+  }
+
+  // Intersection Observer for better performance
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        
+        // Trigger counter animation when why-choose-us section is visible
+        if (entry.target.id === 'why-choose-us') {
+          setTimeout(animateCounters, 500);
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observe all animated elements
+  document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.fade-in-up, .slide-up, .scale-in');
+    animatedElements.forEach(el => observer.observe(el));
+  });
+
+  // Event listeners
+  window.addEventListener('scroll', () => {
+    updateScrollDots();
+    animateOnScroll();
+  });
+
+  // Initial check
+  window.addEventListener('load', () => {
+    updateScrollDots();
+    animateOnScroll();
+  });
+
+  // Smooth scroll for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Add parallax effect to hero section
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const hero = document.getElementById('hero');
+    if (hero) {
+      const rate = scrolled * -0.5;
+      hero.style.transform = `translateY(${rate}px)`;
+    }
+  });
+
+  // Add floating animation to elements
+  function addFloatingAnimation() {
+    const floatingElements = document.querySelectorAll('.modern-card');
+    floatingElements.forEach((element, index) => {
+      element.classList.add('floating-element');
+      element.style.animationDelay = `${index * 0.1}s`;
+    });
+  }
+
+  // Initialize floating animations
+  document.addEventListener('DOMContentLoaded', addFloatingAnimation);
+
+  // PDF viewer function
+  function openPDF(pdfPath) {
+    // Open PDF in a new window with full viewer
+    const newWindow = window.open(pdfPath, '_blank', 'width=800,height=600,scrollbars=yes,resizable=yes');
+    if (!newWindow) {
+      // Fallback if popup is blocked
+      window.location.href = pdfPath;
+    }
+  }
+
+  // Enhanced PDF preview with error handling
+  function enhancePDFPreviews() {
+    const iframes = document.querySelectorAll('iframe[src*=".pdf"]');
+    
+    iframes.forEach(iframe => {
+      iframe.addEventListener('error', function() {
+        // Fallback content if PDF can't be loaded
+        this.style.display = 'none';
+        const fallback = document.createElement('div');
+        fallback.className = 'w-full h-64 bg-gray-100 rounded-lg flex items-center justify-center';
+        fallback.innerHTML = `
+          <div class="text-center">
+            <svg class="w-12 h-12 text-gray-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <p class="text-gray-500">PDF Preview Unavailable</p>
+            <button onclick="openPDF('${iframe.src}')" class="mt-2 text-blue-600 hover:text-blue-800 underline">
+              Click to view PDF
+            </button>
+          </div>
+        `;
+        this.parentNode.insertBefore(fallback, this);
+      });
+    });
+  }
+
+  // Initialize PDF enhancements
+  document.addEventListener('DOMContentLoaded', enhancePDFPreviews);
+</script>
+
+</body>
+</html>
