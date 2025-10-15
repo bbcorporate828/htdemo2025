@@ -53,23 +53,28 @@
 
     /* Hero background video styling */
     .hero-background {
-      position: relative;
-      width: 100%;
-      height: 60vh; /* Adjust height if necessary */
-      overflow: hidden;
+      position: relative !important;
+      width: 100vw !important;
+      height: 60vh !important;
+      overflow: hidden !important;
+      margin-left: calc(-50vw + 50%) !important;
+      margin-right: calc(-50vw + 50%) !important;
+      left: 0 !important;
+      right: 0 !important;
+      max-width: none !important;
     }
 
  
     .hero-background iframe {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      min-width: 100%;
-      min-height: 100%;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      min-width: 100vw !important;
+      min-height: 100vh !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      pointer-events: none !important;
     }
 
     .hero-content {
@@ -86,6 +91,13 @@
     /* Smooth scrolling */
     html {
       scroll-behavior: smooth;
+    }
+
+    /* Remove default margins and ensure full width */
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow-x: hidden !important;
     }
 
     /* Section min height */
@@ -334,7 +346,7 @@
   <div class="scroll-dot" onclick="scrollToSection('technologies')"></div>
   <div class="scroll-dot" onclick="scrollToSection('products')"></div>
   <div class="scroll-dot" onclick="scrollToSection('certificates')"></div>
-  <div class="scroll-dot" onclick="scrollToSection('capabilities')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('commitment')"></div>
 </div>
 
 <!-- Section 1: Hero -->
@@ -350,7 +362,7 @@
 
   <!-- Content over the video -->
   <div class="hero-content">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Driving Innovation, Empowering Tomorrow</h1>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-[2px_2px_2px_rgba(0,0,0,0.8)]">Driving Innovation, Empowering Tomorrow</h1>
     <p class="max-w-2xl mx-auto text-lg md:text-xl">CDE envisions a future full of possibilities in redefining quality standards in rubber products through cutting-edge technology and innovation.</p>
     <a href="#overview" class="mt-8 inline-block bg-yellow-400 text-black font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-yellow-500 transition">Explore Our Innovation</a>
   </div>
@@ -367,20 +379,11 @@
 <section id="overview" class="rd-centre-backdrop">
   <div class="py-20 px-6 max-w-7xl mx-auto w-full relative z-10">
     <div class="fade-in-up">
-      <h2 class="text-5xl font-bold text-center mb-4">
-        <span class="heading-gradient">Facilities Overview</span>
-      </h2>
-      <p class="text-center text-xl text-gray-600 mb-16">R&D Centre</p>
-      
-      <div class="max-w-5xl mx-auto mb-16">
-        <div class="glass p-12 rounded-3xl">
-          <p class="text-2xl leading-relaxed mb-8 text-center">
-            At CDE, Research and Development takes the leading role in meeting demands of dynamic market segments from healthcare to industrial application.
-          </p>
-          <p class="text-xl leading-relaxed text-gray-700 text-center">
-            Our continuous research leads to breakthroughs in glove technology with numerous patented innovations. Our Research and Development Centre serves as the company gateway to enable continuous transformation through technology and innovation.
-          </p>
-        </div>
+      <div class="modern-card p-10 max-w-4xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold mb-6 text-center heading-gradient">Innovation at the Heart of CDE</h2>
+        <p class="text-xl leading-relaxed text-center">
+          Since our founding, CDE has been committed to pushing the boundaries of science and technology in rubber and polymer manufacturing. We combine advanced research, engineering excellence, and sustainability-driven practices to deliver products that meet evolving global needs.
+        </p>
       </div>
 
       <div class="modern-card p-10 max-w-4xl mx-auto">
@@ -402,53 +405,6 @@
       </h2>
       <p class="text-center text-xl text-gray-600 mb-16">Leading Innovation in Rubber Technology</p>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-        <!-- Innovation Excellence -->
-        <div class="modern-card p-8 text-center stagger-1">
-          <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-red-500 to-pink-600 rounded-full flex items-center justify-center">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-4">Innovation Excellence</h3>
-          <p class="text-gray-600">Cutting-edge research and patented technologies that set industry standards.</p>
-        </div>
-
-        <!-- Quality Assurance -->
-        <div class="modern-card p-8 text-center stagger-2">
-          <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-4">Quality Assurance</h3>
-          <p class="text-gray-600">Rigorous testing protocols ensuring the highest quality standards.</p>
-        </div>
-
-        <!-- Advanced Technology -->
-        <div class="modern-card p-8 text-center stagger-3">
-          <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-4">Advanced Technology</h3>
-          <p class="text-gray-600">State-of-the-art equipment and analytical capabilities for superior products.</p>
-        </div>
-
-        <!-- Global Recognition -->
-        <div class="modern-card p-8 text-center stagger-4">
-          <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-orange-500 to-red-600 rounded-full flex items-center justify-center">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-4">Global Recognition</h3>
-          <p class="text-gray-600">Internationally recognized certifications and industry-leading standards.</p>
-        </div>
-      </div>
-
       <!-- Stats Section -->
       <div class="grid md:grid-cols-4 gap-8">
         <div class="text-center stagger-1">
@@ -460,12 +416,12 @@
           <p class="text-gray-600">Years of Excellence</p>
         </div>
         <div class="text-center stagger-3">
-          <div class="text-4xl font-bold text-green-600 mb-2 counter" data-target="8" data-suffix="+">8+</div>
+          <div class="text-4xl font-bold text-green-600 mb-2 counter" data-target="50" data-suffix="+">50+</div>
           <p class="text-gray-600">Patents Filed</p>
         </div>
         <div class="text-center stagger-4">
-          <div class="text-4xl font-bold text-purple-600 mb-2 counter" data-target="170" data-suffix="+">170+</div>
-          <p class="text-gray-600">Countries Served</p>
+          <div class="text-4xl font-bold text-purple-600 mb-2 counter" data-target="15" data-suffix="+">15</div>
+          <p class="text-gray-600">Countries</p>
         </div>
       </div>
     </div>
@@ -477,66 +433,43 @@
   <div class="py-20 px-6 max-w-7xl mx-auto w-full">
     <div class="fade-in-up">
       <h2 class="text-5xl font-bold text-center mb-4">
-        <span class="heading-gradient">Advanced Analytical Technologies</span>
+        <span class="heading-gradient">Pioneering Technologies for a Better Future</span>
       </h2>
-      <p class="text-center text-xl text-gray-600 mb-16">Cutting-Edge Equipment for Superior Analysis</p>
+      <br>
+      <!-- <p class="text-center text-xl text-gray-600 mb-16">Cutting-Edge Equipment for Superior Analysis</p> -->
       
       <div class="grid md:grid-cols-3 gap-10 mb-16">
         <!-- SEM -->
         <div class="modern-card p-8 stagger-1">
           <div class="overflow-hidden rounded-xl mb-6">
-            <img src="images/sem-equipment.jpg" alt="Scanning Electron Microscopy Equipment" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
+            <img src="images/img_smartmanufac.jpg" alt="Smart Manufacturing" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
           </div>
-          <h3 class="text-2xl font-bold mb-4 text-center">Scanning Electron Microscopy (SEM)</h3>
+          <h3 class="text-2xl font-bold mb-4 text-center">Smart Manufacturing</h3>
           <p class="text-gray-700 leading-relaxed mb-6">
-            Uses focused high-energy electrons to reveal surface morphology, chemical composition, and crystalline structure of materials.
+            Leveraging automation, robotics, and data-driven systems to ensure efficiency, precision, and safety in production.
           </p>
-          <ul class="space-y-3 text-sm text-gray-600">
-            <li class="flex items-center">
-              <span class="text-green-500 font-bold mr-3">✓</span>
-              <span>Determine surface elements</span>
-            </li>
-            <li class="flex items-center">
-              <span class="text-green-500 font-bold mr-3">✓</span>
-              <span>Measure elemental composition</span>
-            </li>
-            <li class="flex items-center">
-              <span class="text-green-500 font-bold mr-3">✓</span>
-              <span>Identify substances and coatings</span>
-            </li>
-          </ul>
         </div>
 
         <!-- HPLC -->
         <div class="modern-card p-8 stagger-2">
           <div class="overflow-hidden rounded-xl mb-6">
-            <img src="images/hplc-equipment.jpg" alt="High-Performance Liquid Chromatography Equipment" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
+            <img src="images/img_mastersizer.jpg" alt="Material Science Excellence - Particle Sizing Equipment" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
           </div>
-          <h3 class="text-2xl font-bold mb-4 text-center">High-Performance Liquid Chromatography (HPLC)</h3>
+          <h3 class="text-2xl font-bold mb-4 text-center">Material Science Excellence</h3>
           <p class="text-gray-700 leading-relaxed mb-6">
-            Versatile identification of compounding ingredients and detection of residual chemicals in rubber gloves at parts per million (ppm) level.
+            Developing advanced rubber and polymer formulations for superior performance, durability, and sustainability.
           </p>
-          <div class="bg-blue-50 p-4 rounded-lg">
-            <p class="text-sm text-blue-800 font-medium">
-              Precision: ±0.001 ppm detection capability
-            </p>
-          </div>
         </div>
 
         <!-- FTIR -->
         <div class="modern-card p-8 stagger-3">
           <div class="overflow-hidden rounded-xl mb-6">
-            <img src="images/ftir-equipment.jpg" alt="Fourier Transform Infrared Spectrophotometer Equipment" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
+            <img src="images/img_contact_angle_tester.jpg" alt="Sustainable Innovation - Surface Analysis Equipment" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
           </div>
-          <h3 class="text-2xl font-bold mb-4 text-center">Fourier Transform Infrared Spectrophotometer (FTIR)</h3>
+          <h3 class="text-2xl font-bold mb-4 text-center">Sustainable Innovation</h3>
           <p class="text-gray-700 leading-relaxed mb-6">
-            Standard technique for identifying chemicals and materials by analyzing infrared spectral scans and molecular vibrations.
+            Innovating eco-friendly processes and biodegradable materials to support a greener future.
           </p>
-          <div class="bg-purple-50 p-4 rounded-lg">
-            <p class="text-sm text-purple-800 font-medium">
-              Advanced molecular fingerprinting technology
-            </p>
-          </div>
         </div>
       </div>
     </div>
@@ -548,72 +481,72 @@
   <div class="py-20 px-6 max-w-7xl mx-auto w-full">
     <div class="fade-in-up">
       <h2 class="text-5xl font-bold text-center mb-4">
-        <span class="heading-gradient">Our Products</span>
+        <span class="heading-gradient">Explore Our Innovations</span>
       </h2>
-      <p class="text-center text-xl text-gray-600 mb-16">Innovative Rubber Solutions for Every Industry</p>
+      <br>
+      <br>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-        <!-- Medical Gloves -->
-        <div class="modern-card p-8 stagger-1">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <!-- Polymer Coated Gloves -->
+        <div class="modern-card p-8 stagger-1 flex flex-col">
           <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
             </svg>
           </div>
-          <h3 class="text-2xl font-bold mb-4 text-center">Medical Gloves</h3>
-          <p class="text-gray-600 mb-6 text-center">
-            Premium quality medical gloves with low protein content and enhanced barrier protection.
+          <h3 class="text-2xl font-bold mb-4 text-center">Polymer Coated Gloves</h3>
+          <p class="text-gray-600 mb-6 text-center flex-grow">
+            Enhanced comfort and environmentally friendly, eliminating the need for chlorination.
           </p>
-          <ul class="space-y-2 text-sm text-gray-600 mb-6">
-            <li>✓ Powder-free options</li>
-            <li>✓ Enhanced tactile sensitivity</li>
-            <li>✓ Superior barrier protection</li>
-          </ul>
-          <button class="modern-btn w-full text-sm py-3">
+          <button class="modern-btn w-full text-sm py-3 mt-auto">
             Learn More
           </button>
         </div>
 
-        <!-- Industrial Gloves -->
-        <div class="modern-card p-8 stagger-2">
+        <!-- Low Derma Technology Gloves -->
+        <div class="modern-card p-8 stagger-2 flex flex-col">
           <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
             </svg>
           </div>
-          <h3 class="text-2xl font-bold mb-4 text-center">Industrial Gloves</h3>
-          <p class="text-gray-600 mb-6 text-center">
-            Heavy-duty industrial gloves designed for maximum protection and durability.
+          <h3 class="text-2xl font-bold mb-4 text-center">Low Derma Technology Gloves</h3>
+          <p class="text-gray-600 mb-6 text-center flex-grow">
+            A cleaner production process that is safer to skin, with better protections against Type I & IV allergies.
           </p>
-          <ul class="space-y-2 text-sm text-gray-600 mb-6">
-            <li>✓ Chemical resistance</li>
-            <li>✓ Cut and abrasion protection</li>
-            <li>✓ Extended wear comfort</li>
-            <li>✓ Custom sizing available</li>
-          </ul>
-          <button class="modern-btn w-full text-sm py-3">
+          <button class="modern-btn w-full text-sm py-3 mt-auto">
             Learn More
           </button>
         </div>
 
-        <!-- Specialty Products -->
-        <div class="modern-card p-8 stagger-3">
+        <!-- Sqinthera Moisturising Gloves -->
+        <div class="modern-card p-8 stagger-3 flex flex-col">
           <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
             <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
             </svg>
           </div>
-          <h3 class="text-2xl font-bold mb-4 text-center">Specialty Products</h3>
-          <p class="text-gray-600 mb-6 text-center">
-            Custom-engineered rubber solutions for specific industrial applications.
+          <h3 class="text-2xl font-bold mb-4 text-center">Sqinthera Moisturising Gloves</h3>
+          <p class="text-gray-600 mb-6 text-center flex-grow">
+            Built on cleaner, skin-safe Low Derma technology, our Sqinther Gloves are further enriched with natural moisturizing licorice extracts — delivering not only protection, but lasting comfort for your skin.
           </p>
-          <ul class="space-y-2 text-sm text-gray-600 mb-6">
-            <li>✓ Chemical Handlings</li>
-            <li>✓ Food Handling</li>
-            <li>✓ Research development</li>
-            <li>✓ Specialized applications</li>
-          </ul>
-          <button class="modern-btn w-full text-sm py-3">
+          <button class="modern-btn w-full text-sm py-3 mt-auto">
+            Learn More
+          </button>
+        </div>
+
+        <!-- Soft Synthetic Gloves -->
+        <div class="modern-card p-8 stagger-4 flex flex-col">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Soft Synthetic Gloves</h3>
+          <p class="text-gray-600 mb-6 text-center flex-grow">
+            Designed for superior comfort and less stress on hands during long-hour usage.
+          </p>
+          <button class="modern-btn w-full text-sm py-3 mt-auto">
             Learn More
           </button>
         </div>
@@ -621,29 +554,16 @@
 
       <!-- Product Features -->
       <div class="bg-white rounded-3xl p-12 shadow-xl">
-        <h3 class="text-3xl font-bold text-center mb-12 heading-gradient">Why Our Products Stand Out</h3>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="text-center stagger-1">
-            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
-              <span class="text-white font-bold text-xl">1</span>
-            </div>
-            <h4 class="text-xl font-bold mb-3">Advanced Materials</h4>
-            <p class="text-gray-600">Utilizing the latest in rubber technology and sustainable materials.</p>
-          </div>
-          <div class="text-center stagger-2">
-            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg">
-              <span class="text-white font-bold text-xl">2</span>
-            </div>
-            <h4 class="text-xl font-bold mb-3">Quality Testing</h4>
-            <p class="text-gray-600">Rigorous quality control processes ensuring consistent performance.</p>
-          </div>
-          <div class="text-center stagger-3">
-            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
-              <span class="text-white font-bold text-xl">3</span>
-            </div>
-            <h4 class="text-xl font-bold mb-3">Innovation Focus</h4>
-            <p class="text-gray-600">Continuous R&D investment driving product innovation.</p>
-          </div>
+        <p class="max-w-4xl mx-auto mt-10 text-center text-lg leading-relaxed mb-8">And many more innovative solutions — all designed with user needs in mind from the perspective of safety, comfort, skin-friendliness, and suitability across diverse industries.</p>
+        
+        <!-- Products & Industries Buttons -->
+        <div class="flex justify-center space-x-6">
+          <a href="https://kossan.com.my/products/gloves/all-products-non-sterile.html" class="bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-gray-300 transition">
+            Our Products
+          </a>
+          <a href="industries.html" class="bg-green-800 text-white font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-gray-600 transition">
+            Industries We Serve
+          </a>
         </div>
       </div>
     </div>
@@ -762,92 +682,24 @@
   </div>
 </section>
 
-<!-- Section 7: R&D Capabilities & Testing -->
-<section id="capabilities" class="bg-gray-50">
+<!-- Section 7: Commitment to the Future -->
+<section id="commitment" class="bg-gradient-to-br from-red-50 to-red-100">
   <div class="py-20 px-6 max-w-7xl mx-auto w-full">
     <div class="fade-in-up">
       <h2 class="text-5xl font-bold text-center mb-4">
-        <span class="heading-gradient">R&D Capabilities & Testing Facilities</span>
+        <span class="heading-gradient">Commitment to the Future</span>
       </h2>
-      <p class="text-center text-xl text-gray-600 mb-16">Comprehensive Research & Development Excellence</p>
+      <p class="text-center text-xl text-gray-600 mb-16">Shaping Tomorrow Through Innovation</p>
       
-      <div class="grid md:grid-cols-2 gap-12 mb-16">
-        <!-- Left Column -->
-        <div class="modern-card p-10 stagger-1">
-          <h3 class="text-3xl font-bold mb-8 heading-gradient">Key Contributions</h3>
-          <ul class="space-y-4 text-gray-700">
-            <li class="flex items-start">
-              <span class="text-green-500 font-bold mr-4 text-xl">✓</span>
-              <span class="text-lg">Developing technologies in sample preparation and extraction methods for HPLC analysis</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-green-500 font-bold mr-4 text-xl">✓</span>
-              <span class="text-lg">Evaluation and quantification of residual chemicals in gloves</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-green-500 font-bold mr-4 text-xl">✓</span>
-              <span class="text-lg">Developing patent-pending medical gloves with low dermatitis claim</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-green-500 font-bold mr-4 text-xl">✓</span>
-              <span class="text-lg">Contamination analysis and impurities screening</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-green-500 font-bold mr-4 text-xl">✓</span>
-              <span class="text-lg">Glove degradation identification</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-green-500 font-bold mr-4 text-xl">✓</span>
-              <span class="text-lg">Developing in-house FTIR library of rubber and rubber chemicals</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Right Column -->
-        <div class="space-y-8 stagger-2">
-          <div class="modern-card p-8">
-            <h4 class="text-2xl font-bold mb-4 heading-gradient">Antigenic Protein Testing</h4>
-            <p class="text-gray-700 leading-relaxed">
-              Continuous improvement in glove dipping technology to produce natural rubber latex gloves with low protein levels, compliant with ASTM D 6499 standards.
-            </p>
-          </div>
-
-          <div class="modern-card p-8">
-            <h4 class="text-2xl font-bold mb-4 heading-gradient">Dipping Process Simulation</h4>
-            <p class="text-gray-700 leading-relaxed">
-              Industrial robotic technology enables detailed simulation of glove dipping process, allowing new product and process development in the shortest time possible.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Additional Testing Equipment -->
-      <div class="modern-card p-12">
-        <h3 class="text-3xl font-bold text-center mb-12 heading-gradient">Additional Testing Capabilities</h3>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div class="text-center stagger-1">
-            <div class="overflow-hidden rounded-xl mb-4">
-              <img src="images/img_contact_angle_tester.jpg" alt="Contact Angle Tester Equipment" class="w-full h-40 object-cover transition-transform duration-500 hover:scale-110">
-            </div>
-            <p class="font-semibold text-gray-800">Contact Angle Tester</p>
-          </div>
-          <div class="text-center stagger-2">
-            <div class="overflow-hidden rounded-xl mb-4">
-              <img src="images/img_liquid_particle_counter.jpg" alt="Liquid Particle Counter Equipment" class="w-full h-40 object-cover transition-transform duration-500 hover:scale-110">
-            </div>
-            <p class="font-semibold text-gray-800">Liquid Particle Counter</p>
-          </div>
-          <div class="text-center stagger-3">
-            <div class="overflow-hidden rounded-xl mb-4">
-              <img src="images/img_zeta_potential_tester.jpg" alt="Zeta Potential Tester Equipment" class="w-full h-40 object-cover transition-transform duration-500 hover:scale-110">
-            </div>
-            <p class="font-semibold text-gray-800">Zeta Potential Tester</p>
-          </div>
-          <div class="text-center stagger-4">
-            <div class="overflow-hidden rounded-xl mb-4">
-              <img src="images/img_mastersizer.jpg" alt="Mastersizer Equipment" class="w-full h-40 object-cover transition-transform duration-500 hover:scale-110">
-            </div>
-            <p class="font-semibold text-gray-800">Mastersizer</p>
+      <div class="max-w-5xl mx-auto">
+        <div class="modern-card p-12 text-center">
+          <p class="text-xl leading-relaxed mb-8 text-gray-700">
+            At CDE, R&D goes beyond advancing technology — it's about creating meaningful value for people, industries, and the environment. We focus on developing sustainable materials, cleaner processes, and forward-looking innovations that not only drive safer and greener solutions, but also ensure every product is tailored to the industries we serve.
+          </p>
+          <div class="mt-12">
+            <a href="#technologies" class="modern-btn text-lg px-8 py-4">
+              Explore More
+            </a>
           </div>
         </div>
       </div>
@@ -872,6 +724,7 @@
           <li><a href="#products" class="hover:text-white transition-colors">Products</a></li>
           <li><a href="#technologies" class="hover:text-white transition-colors">Technologies</a></li>
           <li><a href="#certificates" class="hover:text-white transition-colors">Certifications</a></li>
+          <li><a href="#commitment" class="hover:text-white transition-colors">Commitment</a></li>
         </ul>
       </div>
       <div>
@@ -898,7 +751,7 @@
 
   // Update navigation dots based on scroll position
   function updateScrollDots() {
-    const sections = ['hero', 'overview', 'why-choose-us', 'technologies', 'products', 'certificates', 'capabilities'];
+    const sections = ['hero', 'overview', 'why-choose-us', 'technologies', 'products', 'certificates', 'commitment'];
     const dots = document.querySelectorAll('.scroll-dot');
     
     let currentSection = 0;

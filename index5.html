@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kossan | Technology & Innovation - R&D Centre</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        animation: {
+          'slide-up': 'slideUp 0.8s ease-out',
+          'fade-in-up': 'fadeInUp 0.6s ease-out',
+          'scale-in': 'scaleIn 0.5s ease-out',
+          'float': 'float 3s ease-in-out infinite',
+        },
+        keyframes: {
+          slideUp: {
+            '0%': { transform: 'translateY(100px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' }
+          },
+          fadeInUp: {
+            '0%': { transform: 'translateY(30px)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' }
+          },
+          scaleIn: {
+            '0%': { transform: 'scale(0.9)', opacity: '0' },
+            '100%': { transform: 'scale(1)', opacity: '1' }
+          },
+          float: {
+            '0%, 100%': { transform: 'translateY(0px)' },
+            '50%': { transform: 'translateY(-10px)' }
+          }
+        }
+      }
+    }
+  }
+</script>
+<style>
+    /* Modern CSS Variables */
+    :root {
+      --primary-red: #dc2626;
+      --secondary-red: #ef4444;
+      --accent-green: #10b981;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      --gradient-secondary: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+      --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Hero background video styling */
+    .hero-background {
+      position: relative !important;
+      width: 100vw !important;
+      height: 60vh !important;
+      overflow: hidden !important;
+      margin-left: calc(-50vw + 50%) !important;
+      margin-right: calc(-50vw + 50%) !important;
+      left: 0 !important;
+      right: 0 !important;
+      max-width: none !important;
+    }
+
+ 
+    .hero-background iframe {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      min-width: 100vw !important;
+      min-height: 100vh !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      pointer-events: none !important;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      color: white;
+    }
+
+    /* Modern gradient overlays */
+    .gradient-overlay {
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.8) 0%, rgba(239, 68, 68, 0.6) 100%);
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Remove default margins and ensure full width */
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Section min height */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Hero section specific height override */
+    section#hero {
+      min-height: 60vh;
+      height: 60vh;
+    }
+
+    /* Modern Navigation dots */
+    .scroll-nav-dots {
+      position: fixed;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+    }
+
+    .scroll-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff6b6b, #ef4444);
+      margin: 1rem 0;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid rgba(255, 99, 99, 0.95);
+      box-shadow: 0 0 12px rgba(255, 99, 99, 0.9);
+    }
+
+    .scroll-dot:hover {
+      background: linear-gradient(135deg, #ffc2c2, #ff6b6b);
+      transform: scale(1.2);
+      box-shadow: 0 0 18px rgba(255, 120, 120, 0.95);
+    }
+
+    .scroll-dot.active {
+      background: linear-gradient(135deg, #ff8a8a, #ff3b3b);
+      transform: scale(1.4);
+      box-shadow: 0 0 28px rgba(255, 80, 80, 1);
+    }
+
+    /* Modern scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: float 2s ease-in-out infinite;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      padding: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .scroll-indicator:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(-50%) scale(1.1);
+    }
+
+    /* Advanced animations */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-up {
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .slide-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Modern card hover effects */
+    .modern-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .modern-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .modern-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .modern-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Modern buttons */
+    .modern-btn {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 12px 32px;
+      border-radius: 50px;
+      border: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modern-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .modern-btn:hover::before {
+      left: 100%;
+    }
+
+    .modern-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    /* Glass morphism effect */
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Modern section backgrounds */
+    .section-bg-pattern {
+      background-image: 
+        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+    }
+
+    /* R&D Centre backdrop */
+    .rd-centre-backdrop {
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)),
+        url('images/img_rd_center.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    .rd-centre-backdrop::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+      pointer-events: none;
+    }
+
+    /* Staggered animation delays */
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    .stagger-5 { animation-delay: 0.5s; }
+    .stagger-6 { animation-delay: 0.6s; }
+
+    /* Modern typography */
+    .heading-gradient {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Floating elements */
+    .floating-element {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .floating-element:nth-child(2n) {
+      animation-delay: -2s;
+    }
+
+    .floating-element:nth-child(3n) {
+      animation-delay: -4s;
+    }
+</style>
+</head>
+ 
+<body class="font-sans text-gray-800 bg-gray-50">
+
+<!-- Navigation Dots -->
+<div class="scroll-nav-dots hidden md:block">
+  <div class="scroll-dot active" onclick="scrollToSection('hero')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('overview')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('why-choose-us')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('technologies')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('products')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('certificates')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('proven-track-record')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('innovation-action')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('shaping-future')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('smarter-safer-future')"></div>
+  <div class="scroll-dot" onclick="scrollToSection('commitment')"></div>
+</div>
+
+<!-- Section 1: Hero -->
+<header id="hero" class="hero-background text-white py-20 text-center">
+  <!-- Background video from YouTube -->
+  <div class="gradient-overlay absolute inset-0 z-5"></div>
+  <iframe 
+    src="https://www.youtube.com/embed/IuVosd4umVw?autoplay=1&mute=1&loop=1&playlist=IuVosd4umVw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1" 
+    frameborder="0" 
+    allow="autoplay; encrypted-media" 
+    allowfullscreen>
+  </iframe>
+
+  <!-- Content over the video -->
+  <div class="hero-content">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-[2px_2px_2px_rgba(0,0,0,0.8)]">Driving Innovation, Empowering Tomorrow</h1>
+    <p class="max-w-2xl mx-auto text-lg md:text-xl">Kossan envisions a future full of possibilities in redefining quality standards in rubber products through cutting-edge technology and innovation.</p>
+    <a href="#overview" class="mt-8 inline-block bg-yellow-400 text-black font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-yellow-500 transition">Explore Our Innovation</a>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" onclick="scrollToSection('overview')">
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</header>
+
+<!-- Section 2: R&D Centre Overview -->
+<section id="overview" class="rd-centre-backdrop">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full relative z-10">
+    <div class="fade-in-up">
+      <div class="modern-card p-10 max-w-4xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold mb-6 text-center heading-gradient">Innovation at the Heart of Kossan</h2>
+        <p class="text-xl leading-relaxed text-center">
+          Since our founding, Kossan has been committed to pushing the boundaries of science and technology in rubber and polymer manufacturing. We combine advanced research, engineering excellence, and sustainability-driven practices to deliver products that meet evolving global needs.
+        </p>
+      </div>
+
+      <div class="modern-card p-10 max-w-4xl mx-auto">
+        <h3 class="text-3xl font-bold mb-6 text-center heading-gradient">Our R&D Team</h3>
+        <p class="text-xl leading-relaxed text-center">
+          We have established an efficient Research and Development (R&D) team that provides R&D support to our endeavor in providing innovative medical gloves that can meet the requirement of our customers. Our competent and resourceful R&D team of chemists and engineers provides reliable services for both our internal research projects and medical glove factory operations.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Why Choose Us -->
+<section id="why-choose-us" class="bg-gradient-to-br from-red-50 to-red-100">
+  <div class="py-10 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">Why Choose Kossan R&D</span>
+      </h2>
+      <p class="text-center text-xl text-gray-600 mb-16">Leading Innovation in Rubber Technology</p>
+      
+      <!-- Stats Section -->
+      <div class="grid md:grid-cols-4 gap-8 mb-16">
+        <div class="text-center stagger-1">
+          <div class="text-4xl font-bold text-orange-600 mb-2 counter" data-target="200" data-suffix="+">200+</div>
+          <p class="text-gray-600">Employees</p>
+        </div>
+        <div class="text-center stagger-2">
+          <div class="text-4xl font-bold text-red-600 mb-2 counter" data-target="46">46</div>
+          <p class="text-gray-600">Years of Excellence</p>
+        </div>
+        <div class="text-center stagger-3">
+          <div class="text-4xl font-bold text-green-600 mb-2 counter" data-target="50" data-suffix="+">50+</div>
+          <p class="text-gray-600">Patents Filed</p>
+        </div>
+        <div class="text-center stagger-4">
+          <div class="text-4xl font-bold text-purple-600 mb-2 counter" data-target="15" data-suffix="+">15</div>
+          <p class="text-gray-600">Countries</p>
+        </div>
+      </div>
+
+      <!-- Investing in Tomorrow's Solutions -->
+      <div class="modern-card p-12">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">Investing in Tomorrow's Solutions</h3>
+            <p class="text-lg leading-relaxed text-gray-700">
+              Our R&D teams continuously explore new frontiers in technology, from high-performance materials to advanced glove engineering and automotive solutions. Collaborations with research institutions and global partners allow us to stay at the forefront of industrial innovation.
+            </p>
+          </div>
+          <div>
+            <video autoplay muted loop playsinline class="w-full h-64 object-cover rounded-xl">
+              <source src="video/RDC_Building.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: Advanced Technologies -->
+<section id="technologies" class="bg-white">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">Pioneering Technologies for a Better Future</span>
+      </h2>
+      <br>
+      <!-- <p class="text-center text-xl text-gray-600 mb-16">Cutting-Edge Equipment for Superior Analysis</p> -->
+      
+      <div class="grid md:grid-cols-3 gap-10 mb-16">
+        <!-- SEM -->
+        <div class="modern-card p-8 stagger-1">
+          <div class="overflow-hidden rounded-xl mb-6">
+            <img src="images/img_smartmanufac.jpg" alt="Smart Manufacturing" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Smart Manufacturing</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Leveraging automation, robotics, and data-driven systems to ensure efficiency, precision, and safety in production.
+          </p>
+        </div>
+
+        <!-- HPLC -->
+        <div class="modern-card p-8 stagger-2">
+          <div class="overflow-hidden rounded-xl mb-6">
+            <img src="images/img_mastersizer.jpg" alt="Material Science Excellence - Particle Sizing Equipment" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Material Science Excellence</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Developing advanced rubber and polymer formulations for superior performance, durability, and sustainability.
+          </p>
+        </div>
+
+        <!-- FTIR -->
+        <div class="modern-card p-8 stagger-3">
+          <div class="overflow-hidden rounded-xl mb-6">
+            <img src="images/img_contact_angle_tester.jpg" alt="Sustainable Innovation - Surface Analysis Equipment" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Sustainable Innovation</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Innovating eco-friendly processes and biodegradable materials to support a greener future.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5: Products -->
+<section id="products" class="bg-gradient-to-br from-gray-50 to-red-50">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">Explore Our Innovations</span>
+      </h2>
+      <br>
+      <br>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <!-- Polymer Coated Gloves -->
+        <div class="modern-card p-8 stagger-1 flex flex-col">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Polymer Coated Gloves</h3>
+          <p class="text-gray-600 mb-6 text-center flex-grow">
+            Enhanced comfort and environmentally friendly, eliminating the need for chlorination.
+          </p>
+          <button class="modern-btn w-full text-sm py-3 mt-auto">
+            Learn More
+          </button>
+        </div>
+
+        <!-- Low Derma Technology Gloves -->
+        <div class="modern-card p-8 stagger-2 flex flex-col">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Low Derma Technology Gloves</h3>
+          <p class="text-gray-600 mb-6 text-center flex-grow">
+            A cleaner production process that is safer to skin, with better protections against Type I & IV allergies.
+          </p>
+          <button class="modern-btn w-full text-sm py-3 mt-auto">
+            Learn More
+          </button>
+        </div>
+
+        <!-- Sqinthera Moisturising Gloves -->
+        <div class="modern-card p-8 stagger-3 flex flex-col">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Sqinthera Moisturising Gloves</h3>
+          <p class="text-gray-600 mb-6 text-center flex-grow">
+            Built on cleaner, skin-safe Low Derma technology, our Sqinther Gloves are further enriched with natural moisturizing licorice extracts — delivering not only protection, but lasting comfort for your skin.
+          </p>
+          <button class="modern-btn w-full text-sm py-3 mt-auto">
+            Learn More
+          </button>
+        </div>
+
+        <!-- Soft Synthetic Gloves -->
+        <div class="modern-card p-8 stagger-4 flex flex-col">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Soft Synthetic Gloves</h3>
+          <p class="text-gray-600 mb-6 text-center flex-grow">
+            Designed for superior comfort and less stress on hands during long-hour usage.
+          </p>
+          <button class="modern-btn w-full text-sm py-3 mt-auto">
+            Learn More
+          </button>
+        </div>
+      </div>
+
+      <!-- Product Features -->
+      <div class="bg-white rounded-3xl p-12 shadow-xl">
+        <p class="max-w-4xl mx-auto mt-10 text-center text-lg leading-relaxed mb-8">And many more innovative solutions — all designed with user needs in mind from the perspective of safety, comfort, skin-friendliness, and suitability across diverse industries.</p>
+        
+        <!-- Products & Industries Buttons -->
+        <div class="flex justify-center space-x-6">
+          <a href="https://kossan.com.my/products/gloves/all-products-non-sterile.html" class="bg-yellow-300 text-black font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-gray-300 transition">
+            Our Products
+          </a>
+          <a href="industries.html" class="bg-green-800 text-white font-semibold px-6 py-3 rounded-xl shadow-md hover:bg-gray-600 transition">
+            Industries We Serve
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 6: Certificates -->
+<section id="certificates" class="bg-white">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">Certifications & Standards</span>
+      </h2>
+      <p class="text-center text-xl text-gray-600 mb-16">Internationally Recognized Quality Assurance</p>
+      
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <!-- ISO 17025 -->
+        <div class="modern-card p-8 text-center stagger-1">
+          <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+            <span class="text-white font-bold text-2xl">ISO</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">ISO 17025</h3>
+          <p class="text-gray-600 text-sm">Testing & Calibration Laboratories</p>
+        </div>
+
+        <!-- FDA -->
+        <div class="modern-card p-8 text-center stagger-2">
+          <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center">
+            <span class="text-white font-bold text-lg">FDA</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">FDA 510(k)</h3>
+          <p class="text-gray-600 text-sm">Medical Device Clearance</p>
+        </div>
+      </div>
+
+      <!-- Additional Certifications -->
+      <div class="bg-gradient-to-r from-red-50 to-red-100 rounded-3xl p-12">
+        <h3 class="text-3xl font-bold text-center mb-12 heading-gradient">Additional Certifications</h3>
+        
+        <!-- PDF Certificates Preview Section -->
+        <div class="mb-12">
+          <h4 class="text-2xl font-bold text-center mb-8 text-gray-800">Official Certificates</h4>
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Certificate of Accreditation -->
+            <div class="modern-card p-6 stagger-1">
+              <div class="text-center mb-4">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-500 rounded-full flex items-center justify-center shadow-lg">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                </div>
+                <h5 class="text-lg font-bold text-gray-800 mb-2">Certificate of Accreditation</h5>
+                <p class="text-sm text-gray-600 mb-4">Issue 2 - Laboratory Excellence</p>
+              </div>
+              
+              <!-- PDF Preview -->
+              <div class="pdf-preview-container mb-4">
+                <iframe 
+                  src="pdf/Certificate of Accreditation - Issue 2.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" 
+                  class="w-full h-64 border-0 rounded-lg shadow-lg"
+                  title="Certificate of Accreditation Preview">
+                </iframe>
+              </div>
+              
+              <!-- Download Button -->
+              <div class="flex justify-center space-x-4">
+                <button onclick="openPDF('pdf/Certificate of Accreditation - Issue 2.pdf')" 
+                        class="modern-btn text-sm px-4 py-2">
+                  View Full PDF
+                </button>
+                <a href="pdf/Certificate of Accreditation - Issue 2.pdf" download 
+                   class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">
+                  Download
+                </a>
+              </div>
+            </div>
+
+            <!-- IKM Laboratory Excellence Award -->
+            <div class="modern-card p-6 stagger-2">
+              <div class="text-center mb-4">
+            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 rounded-full flex items-center justify-center shadow-lg">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                  </svg>
+                </div>
+                <h5 class="text-lg font-bold text-gray-800 mb-2">IKM Laboratory Excellence Award</h5>
+                <p class="text-sm text-gray-600 mb-4">2024 Recognition</p>
+              </div>
+              
+              <!-- PDF Preview -->
+              <div class="pdf-preview-container mb-4">
+                <iframe 
+                  src="pdf/IKM Laboratory Excellence Award 2024.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" 
+                  class="w-full h-64 border-0 rounded-lg shadow-lg"
+                  title="IKM Laboratory Excellence Award Preview">
+                </iframe>
+              </div>
+              
+              <!-- Download Button -->
+              <div class="flex justify-center space-x-4">
+                <button onclick="openPDF('pdf/IKM Laboratory Excellence Award 2024.pdf')" 
+                        class="modern-btn text-sm px-4 py-2">
+                  View Full PDF
+                </button>
+                <a href="pdf/IKM Laboratory Excellence Award 2024.pdf" download 
+                   class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">
+                  Download
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 7: Proven Track Record of Innovation -->
+<section id="proven-track-record" class="bg-white">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">Proven Track Record of Innovation</span>
+      </h2>
+      <p class="text-center text-xl text-gray-600 mb-16">Leading the Industry with Groundbreaking Achievements</p>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="modern-card p-12">
+          <ul class="space-y-6 text-lg">
+            <li class="flex items-start">
+              <span class="text-red-600 font-bold mr-4 text-2xl">✔</span>
+              <span class="text-gray-700">First in the region to pioneer powder-free glove dipping technology.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-red-600 font-bold mr-4 text-2xl">✔</span>
+              <span class="text-gray-700">Continuous investment in Industry 4.0 smart factory systems.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-red-600 font-bold mr-4 text-2xl">✔</span>
+              <span class="text-gray-700">Recognized patents in advanced rubber technology and cleaner processes.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Section 11: Innovation in Action -->
+<section id="innovation-action" class="bg-white">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">Innovation in Action</span>
+      </h2>
+      <p class="text-center text-xl text-gray-600 mb-16">From Research to Real-World Solutions</p>
+      
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <div class="modern-card p-8 text-center">
+          <img src="images/img_contact_angle_tester.jpg" alt="Lab Work" class="w-full h-48 object-cover rounded-xl mb-6">
+          <h3 class="text-xl font-bold mb-4">Lab Work</h3>
+          <p class="text-gray-600">Cutting-edge laboratory equipment for precise material analysis and quality assurance.</p>
+        </div>
+        <div class="modern-card p-8 text-center">
+          <img src="images/img_mastersizer.jpg" alt="Testing Equipment" class="w-full h-48 object-cover rounded-xl mb-6">
+          <h3 class="text-xl font-bold mb-4">Testing Equipment</h3>
+          <p class="text-gray-600">State-of-the-art testing equipment ensuring the highest standards of product quality.</p>
+        </div>
+        <div class="modern-card p-8 text-center">
+          <img src="images/img_zeta_potential_tester.jpg" alt="Prototype Development" class="w-full h-48 object-cover rounded-xl mb-6">
+          <h3 class="text-xl font-bold mb-4">Prototype Development</h3>
+          <p class="text-gray-600">Innovative prototype development processes that bring ideas to life.</p>
+        </div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-lg leading-relaxed text-gray-700">
+          From materials research to prototype testing, our multidisciplinary R&D teams collaborate across borders to deliver solutions tailored to customer needs. Every innovation reflects our focus on performance, sustainability, and safety.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 12: Shaping the Future with Innovation -->
+<section id="shaping-future" class="bg-gradient-to-br from-gray-50 to-red-50">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-5xl font-bold mb-6">
+          <span class="heading-gradient">Shaping the Future with Innovation</span>
+        </h2>
+        <p class="text-xl leading-relaxed text-gray-700 mb-12">
+          Kossan's journey is guided by innovation, sustainability, and global impact. As industries evolve, we remain committed to developing technologies that safeguard health, protect the environment, and create value for communities worldwide.
+        </p>
+        <a href="#technologies" class="modern-btn text-lg px-8 py-4">
+          Learn More About Our R&D
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 8: Innovating for a Smarter, Safer Future -->
+<section id="smarter-safer-future" class="bg-white">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">Innovating for a Smarter, Safer Future</span>
+      </h2>
+      <br>
+      
+      <div class="grid md:grid-cols-3 gap-10 mb-16">
+        <!-- R&D Facilities -->
+        <div class="modern-card p-8 stagger-1">
+          <div class="overflow-hidden rounded-xl mb-6">
+            <video autoplay muted loop playsinline class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
+              <source src="video/RDC_Building.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Our R&D Facilities</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Our state-of-the-art R&D centre houses specialized laboratories and advanced manufacturing technologies. From glove engineering to polymer innovation, every facility is designed to accelerate product development and deliver solutions that meet global demands.
+          </p>
+        </div>
+
+        <!-- Accredited Analytical Laboratory -->
+        <div class="modern-card p-8 stagger-2">
+          <div class="overflow-hidden rounded-xl mb-6">
+            <img src="images/img_liquid_particle_counter.jpg" alt="Accredited Analytical Laboratory" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Accredited Analytical Laboratory</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Kossan's Analytical Laboratory is <strong class="text-red-600">ISO/IEC 17025 accredited</strong>, a recognition of our technical competence, precision, and quality assurance standards. This accreditation demonstrates our ability to deliver consistent and reliable testing in line with international benchmarks.
+          </p>
+        </div>
+
+        <!-- Robotics & Advanced Technology -->
+        <div class="modern-card p-8 stagger-3">
+          <div class="overflow-hidden rounded-xl mb-6">
+            <img src="images/img_smartmanufac.jpg" alt="Robotics & Advanced Technology" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-110">
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-center">Robotics & Advanced Technology</h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            We harness automation and robotics to bring innovation to life. Our integration of <strong class="text-red-600">KUKA robotic systems</strong> enhances efficiency, accuracy, and safety in R&D and manufacturing processes, supporting Industry 4.0 smart factory initiatives.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 14: Commitment to the Future -->
+<section id="commitment" class="bg-gradient-to-br from-red-50 to-red-100">
+  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="fade-in-up">
+      <h2 class="text-5xl font-bold text-center mb-4">
+        <span class="heading-gradient">Commitment to the Future</span>
+      </h2>
+      <p class="text-center text-xl text-gray-600 mb-16">Shaping Tomorrow Through Innovation</p>
+      
+      <div class="max-w-5xl mx-auto">
+        <div class="modern-card p-12 text-center">
+          <p class="text-xl leading-relaxed mb-8 text-gray-700">
+            At Kossan, R&D goes beyond advancing technology — it's about creating meaningful value for people, industries, and the environment. We focus on developing sustainable materials, cleaner processes, and forward-looking innovations that not only drive safer and greener solutions, but also ensure every product is tailored to the industries we serve.
+          </p>
+          <div class="mt-12">
+            <a href="#technologies" class="modern-btn text-lg px-8 py-4">
+              Explore More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-gray-800 to-gray-900 text-gray-300 py-12">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <h3 class="text-xl font-bold text-white mb-4">Kossan Rubber Industries Bhd</h3>
+        <p class="text-gray-400 leading-relaxed">
+          Leading innovation in rubber technology with cutting-edge research and development capabilities.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="#overview" class="hover:text-white transition-colors">About Us</a></li>
+          <li><a href="#products" class="hover:text-white transition-colors">Products</a></li>
+          <li><a href="#technologies" class="hover:text-white transition-colors">Technologies</a></li>
+          <li><a href="#certificates" class="hover:text-white transition-colors">Certifications</a></li>
+          <li><a href="#smarter-safer-future" class="hover:text-white transition-colors">R&D Facilities</a></li>
+          <li><a href="#innovation-action" class="hover:text-white transition-colors">Innovation</a></li>
+          <li><a href="#commitment" class="hover:text-white transition-colors">Commitment</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+        <div class="text-gray-400 space-y-2">
+          <p>📧 info@kossanrubber.com</p>
+          <p>📞 +60 3-1234 5678</p>
+          <p>📍 Malaysia</p>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 pt-8 text-center">
+      <p>&copy; 2025 Kossan Rubber Industries Bhd. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll to section function
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Update navigation dots based on scroll position
+  function updateScrollDots() {
+    const sections = ['hero', 'overview', 'why-choose-us', 'technologies', 'products', 'certificates', 'proven-track-record', 'innovation-action', 'shaping-future', 'smarter-safer-future', 'commitment'];
+    const dots = document.querySelectorAll('.scroll-dot');
+    
+    let currentSection = 0;
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    
+    sections.forEach((sectionId, index) => {
+      const section = document.getElementById(sectionId);
+      if (section && scrollPosition >= section.offsetTop) {
+        currentSection = index;
+      }
+    });
+    
+    dots.forEach((dot, index) => {
+      if (index === currentSection) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  // Advanced animations on scroll
+  function animateOnScroll() {
+    const animatedElements = document.querySelectorAll('.fade-in-up, .slide-up, .scale-in');
+    
+    animatedElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      const elementBottom = element.getBoundingClientRect().bottom;
+      
+      if (elementTop < window.innerHeight * 0.8 && elementBottom > 0) {
+        element.classList.add('visible');
+      }
+    });
+  }
+
+  // Counter animation
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const suffix = counter.getAttribute('data-suffix') || '';
+      const increment = target / 100;
+      let current = 0;
+      
+      const updateCounter = () => {
+        if (current < target) {
+          current += increment;
+          counter.textContent = `${Math.ceil(current)}${suffix}`;
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = `${target}${suffix}`;
+        }
+      };
+      
+      updateCounter();
+    });
+  }
+
+  // Intersection Observer for better performance
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        
+        // Trigger counter animation when why-choose-us section is visible
+        if (entry.target.id === 'why-choose-us') {
+          setTimeout(animateCounters, 500);
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observe all animated elements
+  document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.fade-in-up, .slide-up, .scale-in');
+    animatedElements.forEach(el => observer.observe(el));
+  });
+
+  // Event listeners
+  window.addEventListener('scroll', () => {
+    updateScrollDots();
+    animateOnScroll();
+  });
+
+  // Initial check
+  window.addEventListener('load', () => {
+    updateScrollDots();
+    animateOnScroll();
+  });
+
+  // Smooth scroll for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Add parallax effect to hero section
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const hero = document.getElementById('hero');
+    if (hero) {
+      const rate = scrolled * -0.5;
+      hero.style.transform = `translateY(${rate}px)`;
+    }
+  });
+
+  // Add floating animation to elements
+  function addFloatingAnimation() {
+    const floatingElements = document.querySelectorAll('.modern-card');
+    floatingElements.forEach((element, index) => {
+      element.classList.add('floating-element');
+      element.style.animationDelay = `${index * 0.1}s`;
+    });
+  }
+
+  // Initialize floating animations
+  document.addEventListener('DOMContentLoaded', addFloatingAnimation);
+
+  // PDF viewer function
+  function openPDF(pdfPath) {
+    // Open PDF in a new window with full viewer
+    const newWindow = window.open(pdfPath, '_blank', 'width=800,height=600,scrollbars=yes,resizable=yes');
+    if (!newWindow) {
+      // Fallback if popup is blocked
+      window.location.href = pdfPath;
+    }
+  }
+
+  // Enhanced PDF preview with error handling
+  function enhancePDFPreviews() {
+    const iframes = document.querySelectorAll('iframe[src*=".pdf"]');
+    
+    iframes.forEach(iframe => {
+      iframe.addEventListener('error', function() {
+        // Fallback content if PDF can't be loaded
+        this.style.display = 'none';
+        const fallback = document.createElement('div');
+        fallback.className = 'w-full h-64 bg-gray-100 rounded-lg flex items-center justify-center';
+        fallback.innerHTML = `
+          <div class="text-center">
+            <svg class="w-12 h-12 text-gray-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            <p class="text-gray-500">PDF Preview Unavailable</p>
+            <button onclick="openPDF('${iframe.src}')" class="mt-2 text-blue-600 hover:text-blue-800 underline">
+              Click to view PDF
+            </button>
+          </div>
+        `;
+        this.parentNode.insertBefore(fallback, this);
+      });
+    });
+  }
+
+  // Initialize PDF enhancements
+  document.addEventListener('DOMContentLoaded', enhancePDFPreviews);
+</script>
+
+</body>
+</html>
