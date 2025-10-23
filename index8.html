@@ -127,7 +127,7 @@
       height: 60vh;
     }
 
-    /* Modern Navigation with text labels */
+    /* Modern Navigation - Text only, no dots */
     .scroll-nav-dots {
       position: fixed;
       right: 2rem;
@@ -145,68 +145,41 @@
       justify-content: flex-end;
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1.25rem;
       border-radius: 50px;
       background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(10px);
       border: 2px solid rgba(220, 38, 38, 0.3);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      max-width: 50px;
-      overflow: hidden;
       white-space: nowrap;
-    }
-
-    .scroll-dot .dot-indicator {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ff6b6b, #ef4444);
-      margin-left: 0.5rem;
-      flex-shrink: 0;
-      transition: all 0.3s ease;
     }
 
     .scroll-dot .dot-label {
       font-size: 0.875rem;
       font-weight: 600;
       color: #dc2626;
-      opacity: 0;
-      margin-right: 0.5rem;
-      transition: opacity 0.3s ease;
+      transition: all 0.3s ease;
+      display: block;
+      opacity: 1 !important;
+      visibility: visible !important;
     }
 
     .scroll-dot:hover {
-      max-width: 250px;
       background: rgba(255, 255, 255, 0.95);
       border-color: rgba(220, 38, 38, 0.6);
       box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
-    }
-
-    .scroll-dot:hover .dot-label {
-      opacity: 1;
-    }
-
-    .scroll-dot:hover .dot-indicator {
-      background: linear-gradient(135deg, #ffc2c2, #ff6b6b);
-      transform: scale(1.2);
+      transform: translateX(-5px);
     }
 
     .scroll-dot.active {
-      max-width: 250px;
       background: linear-gradient(135deg, #dc2626, #ef4444);
       border-color: #dc2626;
       box-shadow: 0 4px 16px rgba(220, 38, 38, 0.4);
+      transform: translateX(-8px);
     }
 
     .scroll-dot.active .dot-label {
-      opacity: 1;
       color: white;
-    }
-
-    .scroll-dot.active .dot-indicator {
-      background: white;
-      transform: scale(1.3);
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
     }
 
     /* Modern scroll indicator */
@@ -400,51 +373,22 @@
  
 <body class="font-sans text-gray-800 bg-gray-50">
 
-<!-- Navigation with Text Labels -->
-<div class="scroll-nav-dots hidden md:block">
+<!-- Navigation with Text Labels Only -->
+<div class="scroll-nav-dots">
   <div class="scroll-dot active" onclick="scrollToSection('hero')">
     <span class="dot-label">Home</span>
-    <span class="dot-indicator"></span>
   </div>
-  <div class="scroll-dot" onclick="scrollToSection('overview')">
-    <span class="dot-label">Overview</span>
-    <span class="dot-indicator"></span>
+  <div class="scroll-dot" onclick="scrollToSection('rd-excellence')">
+    <span class="dot-label">R&D Excellence</span>
   </div>
-  <div class="scroll-dot" onclick="scrollToSection('our-rd-team')">
-    <span class="dot-label">R&D Team</span>
-    <span class="dot-indicator"></span>
+  <div class="scroll-dot" onclick="scrollToSection('innovation-technology')">
+    <span class="dot-label">Innovation & Technology</span>
   </div>
-  <div class="scroll-dot" onclick="scrollToSection('technologies')">
-    <span class="dot-label">Technologies</span>
-    <span class="dot-indicator"></span>
-  </div>
-  <div class="scroll-dot" onclick="scrollToSection('proven-track-record')">
-    <span class="dot-label">Track Record</span>
-    <span class="dot-indicator"></span>
-  </div>
-  <div class="scroll-dot" onclick="scrollToSection('smart-manufacturing')">
-    <span class="dot-label">Smart Manufacturing</span>
-    <span class="dot-indicator"></span>
-  </div>
-  <div class="scroll-dot" onclick="scrollToSection('shaping-future')">
-    <span class="dot-label">Future Innovation</span>
-    <span class="dot-indicator"></span>
-  </div>
-  <div class="scroll-dot" onclick="scrollToSection('robotics-technology')">
-    <span class="dot-label">Robotics</span>
-    <span class="dot-indicator"></span>
-  </div>
-  <div class="scroll-dot" onclick="scrollToSection('accredited-laboratory')">
-    <span class="dot-label">Laboratory</span>
-    <span class="dot-indicator"></span>
-  </div>
-  <div class="scroll-dot" onclick="scrollToSection('products')">
-    <span class="dot-label">Products</span>
-    <span class="dot-indicator"></span>
+  <div class="scroll-dot" onclick="scrollToSection('products-solutions')">
+    <span class="dot-label">Products & Solutions</span>
   </div>
   <div class="scroll-dot" onclick="scrollToSection('commitment')">
     <span class="dot-label">Commitment</span>
-    <span class="dot-indicator"></span>
   </div>
 </div>
 
@@ -462,9 +406,11 @@
   <!-- YouTube fallback (commented out for now) -->
   <!--
   <iframe
-    src="https://www.youtube.com/embed/IuVosd4umVw?autoplay=1&mute=1&loop=1&playlist=IuVosd4umVw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+    id="youtube-fallback"
+    style="display: none;"
+    src="https://www.youtube-nocookie.com/embed/IuVosd4umVw?autoplay=1&mute=1&loop=1&playlist=IuVosd4umVw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
     frameborder="0"
-    allow="autoplay; encrypted-media"
+    allow="autoplay; encrypted-media; accelerometer; gyroscope; picture-in-picture"
     allowfullscreen>
   </iframe>
   -->
@@ -477,17 +423,18 @@
   </div>
 
   <!-- Scroll indicator -->
-  <div class="scroll-indicator" onclick="scrollToSection('overview')">
+  <div class="scroll-indicator" onclick="scrollToSection('rd-excellence')">
     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
     </svg>
   </div>
 </header>
 
-<!-- Section 2: R&D Centre Overview -->
-<section id="overview" class="rd-centre-backdrop">
+<!-- Section 2: R&D Excellence (Merged: Overview + R&D Team + Track Record) -->
+<section id="rd-excellence" class="rd-centre-backdrop">
   <div class="py-20 px-6 max-w-7xl mx-auto w-full relative z-10">
     <div class="fade-in-up">
+      <!-- Overview Introduction -->
       <div class="modern-card p-10 max-w-4xl mx-auto mb-16">
         <h2 class="text-3xl font-bold mb-6 text-center heading-gradient">Innovation at the Heart of Kossan</h2>
         <p class="text-xl leading-relaxed text-center">
@@ -495,14 +442,7 @@
         </p>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- Section 3: Our R&D Team -->
-<section id="our-rd-team" class="bg-gradient-to-br from-red-50 to-red-100">
-  <div class="py-10 px-6 max-w-7xl mx-auto w-full">
-    <div class="fade-in-up">
+      <!-- R&D Team Section -->
       <h2 class="text-5xl font-bold text-center mb-4">
         <span class="heading-gradient">Our R&D Team</span>
       </h2>
@@ -561,19 +501,45 @@
           </div>
         </div>
       </div>
+
+      <!-- Proven Track Record -->
+      <h2 class="text-5xl font-bold text-center mb-4 mt-20">
+        <span class="heading-gradient">Proven Track Record of Innovation</span>
+      </h2>
+      <p class="text-center text-xl text-gray-600 mb-16">Leading the Industry with Groundbreaking Achievements</p>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="modern-card p-12">
+          <ul class="space-y-6 text-lg">
+            <li class="flex items-start">
+              <span class="text-red-600 font-bold mr-4 text-2xl">✔</span>
+              <span class="text-gray-700">First in the region to pioneer powder-free glove dipping technology.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-red-600 font-bold mr-4 text-2xl">✔</span>
+              <span class="text-gray-700">Continuous investment in Industry 4.0 smart factory systems.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-red-600 font-bold mr-4 text-2xl">✔</span>
+              <span class="text-gray-700">Recognized patents in advanced rubber technology and cleaner processes.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Section 4: Advanced Technologies -->
-<section id="technologies" class="bg-white">
+<!-- Section 3: Innovation & Technology (Merged: Technologies + Smart Manufacturing + Robotics + Laboratory) -->
+<section id="innovation-technology" class="bg-white">
   <div class="py-20 px-6 max-w-7xl mx-auto w-full">
     <div class="fade-in-up">
+      <!-- Technologies Overview -->
       <h2 class="text-5xl font-bold text-center mb-4">
         <span class="heading-gradient">Pioneering Technologies for a Better Future</span>
       </h2>
       <br>
-      
+
       <div class="grid md:grid-cols-3 gap-10 mb-16">
         <!-- Smart Manufacturing -->
         <div class="modern-card p-8 stagger-1">
@@ -599,52 +565,13 @@
           </p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-
-
-<!-- Section 6: Proven Track Record of Innovation -->
-<section id="proven-track-record" class="bg-white">
-  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
-    <div class="fade-in-up">
-      <h2 class="text-5xl font-bold text-center mb-4">
-        <span class="heading-gradient">Proven Track Record of Innovation</span>
-      </h2>
-      <p class="text-center text-xl text-gray-600 mb-16">Leading the Industry with Groundbreaking Achievements</p>
-      
-      <div class="max-w-4xl mx-auto">
-        <div class="modern-card p-12">
-          <ul class="space-y-6 text-lg">
-            <li class="flex items-start">
-              <span class="text-red-600 font-bold mr-4 text-2xl">✔</span>
-              <span class="text-gray-700">First in the region to pioneer powder-free glove dipping technology.</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-red-600 font-bold mr-4 text-2xl">✔</span>
-              <span class="text-gray-700">Continuous investment in Industry 4.0 smart factory systems.</span>
-            </li>
-            <li class="flex items-start">
-              <span class="text-red-600 font-bold mr-4 text-2xl">✔</span>
-              <span class="text-gray-700">Recognized patents in advanced rubber technology and cleaner processes.</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 6: Smart Manufacturing -->
-<section id="smart-manufacturing" class="bg-white">
-  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
-    <div class="fade-in-up">
-      <h2 class="text-5xl font-bold text-center mb-4">
+      <!-- Smart Manufacturing Details -->
+      <h2 class="text-5xl font-bold text-center mb-4 mt-20">
         <span class="heading-gradient">Smart Manufacturing</span>
       </h2>
       <p class="text-center text-xl text-gray-600 mb-16">Revolutionary Automation in Packaging Technology</p>
-      
+
       <div class="max-w-6xl mx-auto">
         <div class="modern-card p-12">
           <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -683,7 +610,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="mt-12 grid md:grid-cols-3 gap-8">
           <div class="modern-card p-8 text-center">
             <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
@@ -694,7 +621,7 @@
             <h4 class="text-xl font-bold mb-3">High Speed Processing</h4>
             <p class="text-gray-600">Capable of processing thousands of units per hour with consistent quality</p>
           </div>
-          
+
           <div class="modern-card p-8 text-center">
             <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -704,7 +631,7 @@
             <h4 class="text-xl font-bold mb-3">Quality Assurance</h4>
             <p class="text-gray-600">Advanced inspection systems ensure every package meets our high standards</p>
           </div>
-          
+
           <div class="modern-card p-8 text-center">
             <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -716,38 +643,13 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- Section 7: Shaping the Future with Innovation -->
-<section id="shaping-future" class="bg-gradient-to-br from-gray-50 to-red-50">
-  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
-    <div class="fade-in-up">
-      <div class="max-w-5xl mx-auto text-center">
-        <h2 class="text-5xl font-bold mb-6">
-          <span class="heading-gradient">Shaping the Future with Innovation</span>
-        </h2>
-        <p class="text-xl leading-relaxed text-gray-700 mb-12">
-          Kossan's journey is guided by innovation, sustainability, and global impact. As industries evolve, we remain committed to developing technologies that safeguard health, protect the environment, and create value for communities worldwide.
-        </p>
-        <a href="#technologies" class="modern-btn text-lg px-8 py-4">
-          Learn More About Our R&D
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 8: Robotics & Advanced Technology -->
-<section id="robotics-technology" class="bg-gradient-to-br from-gray-50 to-red-50">
-  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
-    <div class="fade-in-up">
-      <h2 class="text-5xl font-bold text-center mb-4">
+      <!-- Robotics & Advanced Technology -->
+      <h2 class="text-5xl font-bold text-center mb-4 mt-20">
         <span class="heading-gradient">Robotics & Advanced Technology</span>
       </h2>
       <p class="text-center text-xl text-gray-600 mb-16">Industry 4.0 Smart Factory Solutions</p>
-      
+
       <div class="max-w-4xl mx-auto">
         <div class="modern-card p-12">
           <div class="grid md:grid-cols-2 gap-8 items-center">
@@ -783,19 +685,13 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- Section 9: Accredited Analytical Laboratory -->
-<section id="accredited-laboratory" class="bg-white">
-  <div class="py-20 px-6 max-w-7xl mx-auto w-full">
-    <div class="fade-in-up">
-      <h2 class="text-5xl font-bold text-center mb-4">
+      <!-- Accredited Analytical Laboratory -->
+      <h2 class="text-5xl font-bold text-center mb-4 mt-20">
         <span class="heading-gradient">Accredited Analytical Laboratory</span>
       </h2>
       <p class="text-center text-xl text-gray-600 mb-16">Internationally Recognized Quality Assurance</p>
-      
+
       <!-- ISO 17025 Detailed Section -->
       <div class="max-w-6xl mx-auto mb-16">
         <div class="modern-card p-12">
@@ -912,11 +808,12 @@
       </div>
 
     </div>
+    </div>
   </div>
 </section>
 
-<!-- Section 10: Products -->
-<section id="products" class="bg-gradient-to-br from-gray-50 to-red-50">
+<!-- Section 4: Products & Solutions (Merged: Products + Shaping Future) -->
+<section id="products-solutions" class="bg-gradient-to-br from-gray-50 to-red-50">
   <div class="py-20 px-6 max-w-7xl mx-auto w-full">
     <div class="fade-in-up">
       <h2 class="text-5xl font-bold text-center mb-4">
@@ -997,11 +894,21 @@
           </a>
         </div>
       </div>
+
+      <!-- Shaping the Future -->
+      <div class="max-w-5xl mx-auto text-center mt-20">
+        <h2 class="text-5xl font-bold mb-6">
+          <span class="heading-gradient">Shaping the Future with Innovation</span>
+        </h2>
+        <p class="text-xl leading-relaxed text-gray-700 mb-12">
+          Kossan's journey is guided by innovation, sustainability, and global impact. As industries evolve, we remain committed to developing technologies that safeguard health, protect the environment, and create value for communities worldwide.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Section 11: Commitment to the Future -->
+<!-- Section 5: Commitment to the Future -->
 <section id="commitment" class="bg-gradient-to-br from-red-50 to-red-100">
   <div class="py-20 px-6 max-w-7xl mx-auto w-full">
     <div class="fade-in-up">
@@ -1016,7 +923,7 @@
             At Kossan, R&D goes beyond advancing technology — it's about creating meaningful value for people, industries, and the environment. We focus on developing sustainable materials, cleaner processes, and forward-looking innovations that not only drive safer and greener solutions, but also ensure every product is tailored to the industries we serve.
           </p>
           <div class="mt-12">
-            <a href="#technologies" class="modern-btn text-lg px-8 py-4">
+            <a href="#innovation-technology" class="modern-btn text-lg px-8 py-4">
               Explore More
             </a>
           </div>
@@ -1039,12 +946,9 @@
       <div>
         <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
         <ul class="space-y-2 text-gray-400">
-          <li><a href="#overview" class="hover:text-white transition-colors">About Us</a></li>
-          <li><a href="#products" class="hover:text-white transition-colors">Products</a></li>
-          <li><a href="#technologies" class="hover:text-white transition-colors">Technologies</a></li>
-          <li><a href="#accredited-laboratory" class="hover:text-white transition-colors">Accredited Laboratory</a></li>
-          <li><a href="#our-rd-team" class="hover:text-white transition-colors">R&D Facilities</a></li>
-          <li><a href="#smart-manufacturing" class="hover:text-white transition-colors">Smart Manufacturing</a></li>
+          <li><a href="#rd-excellence" class="hover:text-white transition-colors">R&D Excellence</a></li>
+          <li><a href="#innovation-technology" class="hover:text-white transition-colors">Innovation & Technology</a></li>
+          <li><a href="#products-solutions" class="hover:text-white transition-colors">Products & Solutions</a></li>
           <li><a href="#commitment" class="hover:text-white transition-colors">Commitment</a></li>
         </ul>
       </div>
@@ -1090,7 +994,7 @@
 
   // Update navigation dots based on scroll position
   function updateScrollDots() {
-    const sections = ['hero', 'overview', 'our-rd-team', 'technologies', 'proven-track-record', 'smart-manufacturing', 'shaping-future', 'robotics-technology', 'accredited-laboratory', 'products', 'commitment'];
+    const sections = ['hero', 'rd-excellence', 'innovation-technology', 'products-solutions', 'commitment'];
     const dots = document.querySelectorAll('.scroll-dot');
     
     let currentSection = 0;
@@ -1160,9 +1064,9 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        
-        // Trigger counter animation when our-rd-team section is visible
-        if (entry.target.id === 'our-rd-team') {
+
+        // Trigger counter animation when rd-excellence section is visible
+        if (entry.target.id === 'rd-excellence') {
           setTimeout(animateCounters, 500);
         }
       }

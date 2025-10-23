@@ -127,7 +127,7 @@
       height: 60vh;
     }
 
-    /* Modern Navigation with text labels */
+    /* Modern Navigation - Text only, no dots */
     .scroll-nav-dots {
       position: fixed;
       right: 2rem;
@@ -145,68 +145,41 @@
       justify-content: flex-end;
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1.25rem;
       border-radius: 50px;
       background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(10px);
       border: 2px solid rgba(220, 38, 38, 0.3);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      max-width: 50px;
-      overflow: hidden;
       white-space: nowrap;
-    }
-
-    .scroll-dot .dot-indicator {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ff6b6b, #ef4444);
-      margin-left: 0.5rem;
-      flex-shrink: 0;
-      transition: all 0.3s ease;
     }
 
     .scroll-dot .dot-label {
       font-size: 0.875rem;
       font-weight: 600;
       color: #dc2626;
-      opacity: 0;
-      margin-right: 0.5rem;
-      transition: opacity 0.3s ease;
+      transition: all 0.3s ease;
+      display: block;
+      opacity: 1 !important;
+      visibility: visible !important;
     }
 
     .scroll-dot:hover {
-      max-width: 250px;
       background: rgba(255, 255, 255, 0.95);
       border-color: rgba(220, 38, 38, 0.6);
       box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
-    }
-
-    .scroll-dot:hover .dot-label {
-      opacity: 1;
-    }
-
-    .scroll-dot:hover .dot-indicator {
-      background: linear-gradient(135deg, #ffc2c2, #ff6b6b);
-      transform: scale(1.2);
+      transform: translateX(-5px);
     }
 
     .scroll-dot.active {
-      max-width: 250px;
       background: linear-gradient(135deg, #dc2626, #ef4444);
       border-color: #dc2626;
       box-shadow: 0 4px 16px rgba(220, 38, 38, 0.4);
+      transform: translateX(-8px);
     }
 
     .scroll-dot.active .dot-label {
-      opacity: 1;
       color: white;
-    }
-
-    .scroll-dot.active .dot-indicator {
-      background: white;
-      transform: scale(1.3);
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
     }
 
     /* Modern scroll indicator */
@@ -400,51 +373,40 @@
  
 <body class="font-sans text-gray-800 bg-gray-50">
 
-<!-- Navigation with Text Labels -->
-<div class="scroll-nav-dots hidden md:block">
+<!-- Navigation with Text Labels Only -->
+<div class="scroll-nav-dots">
   <div class="scroll-dot active" onclick="scrollToSection('hero')">
     <span class="dot-label">Home</span>
-    <span class="dot-indicator"></span>
   </div>
   <div class="scroll-dot" onclick="scrollToSection('overview')">
     <span class="dot-label">Overview</span>
-    <span class="dot-indicator"></span>
   </div>
   <div class="scroll-dot" onclick="scrollToSection('our-rd-team')">
     <span class="dot-label">R&D Team</span>
-    <span class="dot-indicator"></span>
   </div>
   <div class="scroll-dot" onclick="scrollToSection('technologies')">
     <span class="dot-label">Technologies</span>
-    <span class="dot-indicator"></span>
   </div>
   <div class="scroll-dot" onclick="scrollToSection('proven-track-record')">
     <span class="dot-label">Track Record</span>
-    <span class="dot-indicator"></span>
   </div>
   <div class="scroll-dot" onclick="scrollToSection('smart-manufacturing')">
     <span class="dot-label">Smart Manufacturing</span>
-    <span class="dot-indicator"></span>
   </div>
   <div class="scroll-dot" onclick="scrollToSection('shaping-future')">
     <span class="dot-label">Future Innovation</span>
-    <span class="dot-indicator"></span>
   </div>
   <div class="scroll-dot" onclick="scrollToSection('robotics-technology')">
     <span class="dot-label">Robotics</span>
-    <span class="dot-indicator"></span>
   </div>
   <div class="scroll-dot" onclick="scrollToSection('accredited-laboratory')">
     <span class="dot-label">Laboratory</span>
-    <span class="dot-indicator"></span>
   </div>
   <div class="scroll-dot" onclick="scrollToSection('products')">
     <span class="dot-label">Products</span>
-    <span class="dot-indicator"></span>
   </div>
   <div class="scroll-dot" onclick="scrollToSection('commitment')">
     <span class="dot-label">Commitment</span>
-    <span class="dot-indicator"></span>
   </div>
 </div>
 
@@ -462,9 +424,11 @@
   <!-- YouTube fallback (commented out for now) -->
   <!--
   <iframe
-    src="https://www.youtube.com/embed/IuVosd4umVw?autoplay=1&mute=1&loop=1&playlist=IuVosd4umVw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+    id="youtube-fallback"
+    style="display: none;"
+    src="https://www.youtube-nocookie.com/embed/IuVosd4umVw?autoplay=1&mute=1&loop=1&playlist=IuVosd4umVw&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
     frameborder="0"
-    allow="autoplay; encrypted-media"
+    allow="autoplay; encrypted-media; accelerometer; gyroscope; picture-in-picture"
     allowfullscreen>
   </iframe>
   -->
